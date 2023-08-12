@@ -9,14 +9,20 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"></RowDefinition>
-            <RowDefinition Height="Auto"></RowDefinition>
-
-            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
 
-        <TextBox Grid.Row="0" x:Name="A"></TextBox>
-        <TextBox Grid.Row="1" x:Name="B"></TextBox>
+        <StackPanel Grid.Row="0">
+            <Label>Strikkefasthed</Label>
+            <TextBox  x:Name="KnittingGaug"></TextBox>
 
-        <Button Grid.Row="2" Click="Button_Click">Tryk på mig</Button>
+            <Label>sko størrelse</Label>
+            <ListBox Height="100" x:Name="ShoeSize"/>
+            <Button x:Name="Calculat" Click="Calculat_Click">Beregn</Button>
+           
+        </StackPanel>
+        
+        <Label Grid.Row="1" x:Name="Result" Background="Teal"></Label>
+        
     </Grid>
 </Window>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ItSocks.Controller;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,14 +21,19 @@ namespace ItSocks
     /// </summary>
     public partial class MainWindow : Window
     {
+        List<string> shoeSize = new List<string>();
         public MainWindow()
         {
             InitializeComponent();
+            shoeSize.Add("43");
+            ShoeSize.ItemsSource= shoeSize;
+            
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Calculat_Click(object sender, RoutedEventArgs e)
         {
-
+            CreateNewSockController createNewSockController = new CreateNewSockController();
+            createNewSockController.CarryPattern(24, 32, 43);
         }
     }
 }
