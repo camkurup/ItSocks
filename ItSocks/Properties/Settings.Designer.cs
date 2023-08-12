@@ -25,7 +25,7 @@ namespace ItSocks.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("25,26.0, 26.5,27.0")]
+        [global::System.Configuration.DefaultSettingValueAttribute("22,5 - 22,5 - 23,0 - 24,0 - 24,5 - 25,0 - 25,0 - 26,0 - 26,5 - 27,0")]
         public string SockPerimeter {
             get {
                 return ((string)(this["SockPerimeter"]));

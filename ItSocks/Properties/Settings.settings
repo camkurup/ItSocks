@@ -3,7 +3,7 @@
   <Profiles />
   <Settings>
     <Setting Name="SockPerimeter" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">25,26.0, 26.5,27.0</Value>
+      <Value Profile="(Default)">25,0 - 26,0 - 26,5 - 27,0</Value>
     </Setting>
   </Settings>
 </SettingsFile>

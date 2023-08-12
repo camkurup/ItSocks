@@ -12,19 +12,19 @@ namespace ItSocks.Data
     {
         public double StartingNumberOfMasksCalculator(int a)
         {
-            Debug.WriteLine(Properties.Settings.Default.SockPerimeter.Split(',')[1]);
-            var container = Properties.Settings.Default.SockPerimeter.Split(',')[0];
-            double omkreds = 25.0;
-            double calculator = (double.Parse(container) / 10.0) * a;
+            //Index 0-9 in SockPerimeter correspond to the following shoe size:
+            //[37, 38, 39, 40, 41, 42, 43, 44, 45, 46]
+            double container = double.Parse(Properties.Settings.Default.SockPerimeter.Split('-')[1]);
+            double numberOfMasks = (container / 10.0) * a;
 
             //Perhaps a "Round off" by 4 is making the pattern to imprecise
-            if (Math.Round(calculator) % 4 != 0)
+            if (Math.Round(numberOfMasks) % 4.0 != 0.0)
             {
-                int x = (int)Math.Round(calculator)/4;
-                calculator= x*4;
+                double x = (double)Math.Round(numberOfMasks)/4.0;
+                numberOfMasks= x*4.0;
             }
 
-            return  calculator;
+            return  numberOfMasks;
         }
     }
 }
