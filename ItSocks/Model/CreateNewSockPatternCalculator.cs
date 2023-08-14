@@ -14,8 +14,8 @@ namespace ItSocks.Data
         {
             //Index 0-9 in SockPerimeter correspond to the following shoe size:
             //[37, 38, 39, 40, 41, 42, 43, 44, 45, 46]
-            double container = double.Parse(Properties.Settings.Default.SockPerimeter.Split('-')[1]);
-            double numberOfMasks = (container / 10.0) * a;
+            double perimeter = double.Parse(Properties.Settings.Default.SockPerimeter.Split('-')[6]);
+            double numberOfMasks = (perimeter / 10.0) * a;
 
             //Perhaps a "Round off" by 4 is making the pattern to imprecise
             if (Math.Round(numberOfMasks) % 4.0 != 0.0)

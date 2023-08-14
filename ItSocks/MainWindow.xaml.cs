@@ -21,11 +21,25 @@ namespace ItSocks
     /// </summary>
     public partial class MainWindow : Window
     {
-        List<string> shoeSize = new List<string>();
+        List<int> shoeSize = new List<int>();
+        int mask = 24;
+        int needle = 32;
+
+        int numberOfMAsks = 0;
         public MainWindow()
         {
             InitializeComponent();
-            shoeSize.Add("43");
+            shoeSize.Add(37);
+            shoeSize.Add(38); 
+            shoeSize.Add(39);
+            shoeSize.Add(40);
+            shoeSize.Add(41);
+            shoeSize.Add(42);
+            shoeSize.Add(43);
+            shoeSize.Add(44);
+            shoeSize.Add(45);
+            shoeSize.Add(46);
+
             ShoeSize.ItemsSource= shoeSize;
             
         }
@@ -33,7 +47,12 @@ namespace ItSocks
         private void Calculat_Click(object sender, RoutedEventArgs e)
         {
             CreateNewSockController createNewSockController = new CreateNewSockController();
-            createNewSockController.CarryPattern(24, 32, 43);
+            createNewSockController.CarryPattern(mask, needle, 43);
+        }
+
+        private void ShoeSize_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }
