@@ -27,13 +27,32 @@ namespace ItSocks.Data
             return  numberOfMasks;
         }
 
-        public double RoundsCalculator(int rows, double ribbingSize)
+        public double RoundsCalculator(int rows, double cuffSizeInCentimeter)
         {
             rows = 32;
-            ribbingSize = 2.5;
-            double numberOfRounds = (ribbingSize/10) * rows;
+            cuffSizeInCentimeter = 2.5;
+            double numberOfRounds = (cuffSizeInCentimeter/10) * rows;
 
             return numberOfRounds;
+        }
+
+        public double HeelInCentimetersCalculator(double rows, double masks, int countOfMasksInTheMiddel) 
+        {
+            rows = 32;
+            masks = 30;
+            countOfMasksInTheMiddel = 10;
+
+            double heelInCentimeter = (10/rows) * (masks-countOfMasksInTheMiddel);
+
+            return heelInCentimeter;
+        }
+
+        public double ToeInCentimeterCalculator(int rows, int roundsForToe)
+        {
+            double container = (10.0 / rows) * roundsForToe;
+            double toeInCentimeter = (double)Math.Round(container);
+
+            return toeInCentimeter;
         }
     }
 }

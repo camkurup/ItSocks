@@ -25,9 +25,10 @@ namespace ItSocks
         List<int> shoeSize = new List<int>();
         int mask = 24;
         int needle = 32;
-        double ribbingSizeInCentimeters = 2.5;
+        double cuffSizeInCentimeters = 2.5;
+        int countOfMasksInTheMiddel = 10;
+        int roundsForToe = 17;
 
-        int numberOfMAsks = 0;
         public MainWindow()
         {
             InitializeComponent();
@@ -49,7 +50,7 @@ namespace ItSocks
         private void Calculat_Click(object sender, RoutedEventArgs e)
         {
             CreateNewSockController createNewSockController = new CreateNewSockController();
-            createNewSockController.CarryPattern(mask, needle, shoeSize[6], ribbingSizeInCentimeters);
+            createNewSockController.CarryPattern(mask, needle, shoeSize[6], cuffSizeInCentimeters, countOfMasksInTheMiddel, roundsForToe);
         }
 
         //Godt note til mig selv:
