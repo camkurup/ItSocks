@@ -31,7 +31,9 @@
             <ListBox 
                 Height="100" 
                 x:Name="ShoeSize" 
-                SelectionChanged="ShoeSize_SelectionChanged"/>
+                SelectionChanged="ShoeSize_SelectionChanged">
+                
+            </ListBox>
             <Button 
                 x:Name="Calculat" 
                 Click="Calculat_Click"
@@ -49,7 +51,7 @@
                 x:Name="NumberOfMAsks" 
                 Background="LightSeaGreen"
                 Margin="0,10,0,0"
-                Padding="10"/>
+                Padding="10" TextChanged="NumberOfMAsks_TextChanged"/>
 
         </StackPanel>
         

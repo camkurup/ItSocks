@@ -1,6 +1,7 @@
 ﻿using ItSocks.Controller;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -52,7 +53,16 @@ namespace ItSocks
 
         private void ShoeSize_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            //ListBoxItem lbi = (ListBoxItem) (ShoeSize.ItemContainerGenerator.ContainerFromIndex(0));
+            ListBoxItem lbi = (ListBoxItem)(ShoeSize.ItemContainerGenerator.ContainerFromIndex(0));
 
+
+            Debug.WriteLine("The contents of the item at index 0 are: " + (lbi.Content.ToString()) + ".");
+        }
+
+        private void NumberOfMAsks_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            
         }
     }
 }
