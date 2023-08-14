@@ -25,6 +25,7 @@ namespace ItSocks
         List<int> shoeSize = new List<int>();
         int mask = 24;
         int needle = 32;
+        double ribbingSizeInCentimeters = 2.5;
 
         int numberOfMAsks = 0;
         public MainWindow()
@@ -41,28 +42,25 @@ namespace ItSocks
             shoeSize.Add(45);
             shoeSize.Add(46);
 
-            ShoeSize.ItemsSource= shoeSize;
+            ShoeSize.ItemsSource = shoeSize;
             
         }
 
         private void Calculat_Click(object sender, RoutedEventArgs e)
         {
             CreateNewSockController createNewSockController = new CreateNewSockController();
-            createNewSockController.CarryPattern(mask, needle, 43);
+            createNewSockController.CarryPattern(mask, needle, shoeSize[6], ribbingSizeInCentimeters);
         }
 
+        //Godt note til mig selv:
+        //nedestående kode kan finde ud af at fortælle hvad der står i min listbox på et bestemt index
+        //Jeg skal have fat i mit resultat og føre det med vidre til min knap hvor jeg pt statisk har noteret "43" for sko str. 
+        //bed Mikkel om hjælp til dette onsdag
         private void ShoeSize_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            //ListBoxItem lbi = (ListBoxItem) (ShoeSize.ItemContainerGenerator.ContainerFromIndex(0));
-            ListBoxItem lbi = (ListBoxItem)(ShoeSize.ItemContainerGenerator.ContainerFromIndex(0));
-
+            ListBoxItem lbi = (ListBoxItem) (ShoeSize.ItemContainerGenerator.ContainerFromIndex(0));
 
             Debug.WriteLine("The contents of the item at index 0 are: " + (lbi.Content.ToString()) + ".");
-        }
-
-        private void NumberOfMAsks_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            
         }
     }
 }

@@ -10,12 +10,12 @@ namespace ItSocks.Data
 {
     public class CreateNewSockPatternCalculator
     {
-        public double StartingNumberOfMasksCalculator(int a)
+        public double CastOnMasksCalculator(int masks)
         {
             //Index 0-9 in SockPerimeter correspond to the following shoe size:
             //[37, 38, 39, 40, 41, 42, 43, 44, 45, 46]
             double perimeter = double.Parse(Properties.Settings.Default.SockPerimeter.Split('-')[6]);
-            double numberOfMasks = (perimeter / 10.0) * a;
+            double numberOfMasks = (perimeter / 10.0) * masks;
 
             //Perhaps a "Round off" by 4 is making the pattern to imprecise
             if (Math.Round(numberOfMasks) % 4.0 != 0.0)
@@ -25,6 +25,15 @@ namespace ItSocks.Data
             }
 
             return  numberOfMasks;
+        }
+
+        public double RoundsCalculator(int rows, double ribbingSize)
+        {
+            rows = 32;
+            ribbingSize = 2.5;
+            double numberOfRounds = (ribbingSize/10) * rows;
+
+            return numberOfRounds;
         }
     }
 }

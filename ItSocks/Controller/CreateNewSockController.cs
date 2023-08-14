@@ -11,12 +11,13 @@ namespace ItSocks.Controller
     public class CreateNewSockController
     {
         CreateNewSockPatternCalculator createNewSockPatternCalculator = new CreateNewSockPatternCalculator();
-        public void CarryPattern(int m, int p, int shoeSize)
+        public void CarryPattern(int masks, int rows, int shoeSize, double ribbingSizeInCentimeters)
         {
-            double startingNumberOfMasks = createNewSockPatternCalculator.StartingNumberOfMasksCalculator(m);
-            Debug.WriteLine("antal masker der skal slåes op " + startingNumberOfMasks);
+            double startingNumberOfMasks = createNewSockPatternCalculator.CastOnMasksCalculator(masks);
+            Debug.WriteLine("Antal masker der skal slåes op " + startingNumberOfMasks);
+
+            double rounds = createNewSockPatternCalculator.RoundsCalculator(rows, ribbingSizeInCentimeters);
+            Debug.WriteLine("Antal omgange der skal strikkes " + rounds);
         }
-
-
     }
 }
