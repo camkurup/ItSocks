@@ -1,19 +1,8 @@
 ﻿using ItSocks.Controller;
-using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace ItSocks
 {
@@ -24,10 +13,13 @@ namespace ItSocks
     {
         List<int> shoeSize = new List<int>();
         int mask = 24;
-        int needle = 32;
+        int rows = 32;
         double cuffSizeInCentimeters = 2.5;
         int countOfMasksInTheMiddel = 10;
         int roundsForToe = 17;
+
+        int maskOnHeel = 30;
+
 
         public MainWindow()
         {
@@ -50,7 +42,7 @@ namespace ItSocks
         private void Calculat_Click(object sender, RoutedEventArgs e)
         {
             CreateNewSockController createNewSockController = new CreateNewSockController();
-            createNewSockController.CarryPattern(mask, needle, shoeSize[6], cuffSizeInCentimeters, countOfMasksInTheMiddel, roundsForToe);
+            createNewSockController.CarryPattern(mask, rows, shoeSize[6], cuffSizeInCentimeters, countOfMasksInTheMiddel, roundsForToe, maskOnHeel);
         }
 
         //Godt note til mig selv:

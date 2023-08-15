@@ -27,7 +27,7 @@ namespace ItSocks.Data
             return  numberOfMasks;
         }
 
-        public double RoundsCalculator(int rows, double cuffSizeInCentimeter)
+        public double RoundsOfCuffCalculator(int rows, double cuffSizeInCentimeter)
         {
             rows = 32;
             cuffSizeInCentimeter = 2.5;
@@ -36,13 +36,13 @@ namespace ItSocks.Data
             return numberOfRounds;
         }
 
-        public double HeelInCentimetersCalculator(double rows, double masks, int countOfMasksInTheMiddel) 
+        public double HeelInCentimetersCalculator(double rows, double masksOnHeel, int countOfMasksInTheMiddel) 
         {
             rows = 32;
-            masks = 30;
+            masksOnHeel = 30;
             countOfMasksInTheMiddel = 10;
 
-            double heelInCentimeter = (10/rows) * (masks-countOfMasksInTheMiddel);
+            double heelInCentimeter = (10/rows) * (masksOnHeel-countOfMasksInTheMiddel);
 
             return heelInCentimeter;
         }
@@ -53,6 +53,20 @@ namespace ItSocks.Data
             double toeInCentimeter = (double)Math.Round(container);
 
             return toeInCentimeter;
+        }
+
+        public double LengthOfSoleCalculator(double lengthOfFood)
+        {
+            double lengthOfSole = (lengthOfFood - (lengthOfFood * 0.1)) - (HeelInCentimetersCalculator(32,30,10) + ToeInCentimeterCalculator(32, 17));
+            Debug.WriteLine("lengthOfSole: " + lengthOfSole);
+            return lengthOfSole;
+        }
+
+        public double RoundsOfSoleCalculator(int rows)
+        {
+            double container = (LengthOfSoleCalculator(27.5)/10) * rows;
+            double roundsOfSole = (double)Math.Round(container);
+            return roundsOfSole;
         }
     }
 }
