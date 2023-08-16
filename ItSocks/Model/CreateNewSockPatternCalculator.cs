@@ -1,6 +1,7 @@
 ﻿using ItSocks.Controller;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
@@ -10,6 +11,8 @@ namespace ItSocks.Data
 {
     public class CreateNewSockPatternCalculator
     {
+        //Perhaps it would be smart to create a chek on there is used a minimum count of masks.
+        //It should not be posilbe to create soks with at knittingGauge on only a few masks
         public double CastOnMasksCalculator(int masks, int shoeSize)
         {
             //Index 0-9 in SockPerimeter correspond to the following shoe size:
@@ -70,14 +73,44 @@ namespace ItSocks.Data
 
         public double RoundsOfCuffCalculator(int rows, double cuffSizeInCentimeter)
         {
-            double numberOfRounds = (cuffSizeInCentimeter/10) * rows;
+            double container = (cuffSizeInCentimeter/10) * rows;
+
+            double numberOfRounds = (double)Math.Round(container);
 
             return numberOfRounds;
         }
 
-        public double HeelInCentimetersCalculator(double rows, double masksOnHeel, int countOfMasksInTheMiddel) 
+        public double MasksInMiddelHeel()
         {
-            double heelInCentimeter = (10/rows) * (masksOnHeel-countOfMasksInTheMiddel);
+            int totalNumberOfMasks = (int)CastOnMasksCalculator(24, 43) / 2;
+            int masksOnHeel = totalNumberOfMasks;
+            int modulusOffHeel = masksOnHeel % 3;
+
+            int container = (int)masksOnHeel / 3;
+            
+            double countOfMasksInTheMiddel = 0;
+
+            if (modulusOffHeel == 0)
+            {
+                countOfMasksInTheMiddel = container;
+            }
+            if (modulusOffHeel == 1)
+            {
+                countOfMasksInTheMiddel = container + 1;
+            }
+            if (modulusOffHeel == 2)
+            {
+                countOfMasksInTheMiddel = container - 2;
+            }
+            return countOfMasksInTheMiddel;
+        }
+
+        public double HeelInCentimetersCalculator(double rows) 
+        {
+            double masksOnHeel = CastOnMasksCalculator(24,43) / 2;
+            double container = (10/rows) * (masksOnHeel-(double)MasksInMiddelHeel());
+
+            double heelInCentimeter = (double)Math.Round(container);
 
             return heelInCentimeter;
         }
@@ -92,7 +125,7 @@ namespace ItSocks.Data
 
         public double LengthOfSoleCalculator(double lengthOfFood)
         {
-            double lengthOfSole = (lengthOfFood - (lengthOfFood * 0.1)) - (HeelInCentimetersCalculator(32,30,10) + ToeInCentimeterCalculator(32, 17));
+            double lengthOfSole = (lengthOfFood - (lengthOfFood * 0.1)) - (HeelInCentimetersCalculator(32) + ToeInCentimeterCalculator(32, 17));
             Debug.WriteLine("lengthOfSole: " + lengthOfSole);
             return lengthOfSole;
         }

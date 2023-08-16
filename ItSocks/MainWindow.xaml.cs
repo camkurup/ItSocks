@@ -1,4 +1,5 @@
 ﻿using ItSocks.Controller;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Windows;
@@ -12,13 +13,7 @@ namespace ItSocks
     public partial class MainWindow : Window
     {
         List<int> shoeSize = new List<int>();
-        int mask = 24;
-        int rows = 32;
-        double cuffSizeInCentimeters = 2.5;
-        int countOfMasksInTheMiddel = 10;
-        int roundsForToe = 17;
-
-        int maskOnHeel = 30;
+       
 
 
         public MainWindow()
@@ -41,11 +36,17 @@ namespace ItSocks
         private void Calculat_Click(object sender, RoutedEventArgs e)
         {
             int sizeOfShoe = (int)ShoeSize.SelectedItem;
+            int masks = Convert.ToInt32(Masks.Text);
+            int rows = Convert.ToInt32(Rows.Text);
+            double cuffSizeInCentimeters = 2.5;
+            int countOfMasksInTheMiddel = 10;
+            int roundsForToe = 17;
+            int maskOnHeel = 30;
 
             CreateNewSockController createNewSockController = new CreateNewSockController();
-            createNewSockController.CarryPattern(mask, rows, sizeOfShoe, cuffSizeInCentimeters, countOfMasksInTheMiddel, roundsForToe, maskOnHeel);
+            createNewSockController.CarryPattern(masks, rows, sizeOfShoe, cuffSizeInCentimeters, countOfMasksInTheMiddel, roundsForToe, maskOnHeel);
 
-            Debug.WriteLine(sizeOfShoe);
+            Debug.WriteLine(masks);
             
         }
 

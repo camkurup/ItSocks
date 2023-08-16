@@ -19,7 +19,7 @@ namespace ItSocks.Controller
             double rounds = createNewSockPatternCalculator.RoundsOfCuffCalculator(rows, cuffSizeInCentimeters);
             Debug.WriteLine("Antal omgange der skal strikkes " + rounds);
 
-            double heelInCentimeter = createNewSockPatternCalculator.HeelInCentimetersCalculator(rows, masksOnHeel, countOfMasksInTheMiddel);
+            double heelInCentimeter = createNewSockPatternCalculator.HeelInCentimetersCalculator(rows);
             Debug.WriteLine("Hælen skal være " +  heelInCentimeter + " cm.");
 
             double toeInCentimeter = createNewSockPatternCalculator.ToeInCentimeterCalculator(rows, roundsForToe);
@@ -27,6 +27,9 @@ namespace ItSocks.Controller
 
             double roundsOfSole = createNewSockPatternCalculator.RoundsOfSoleCalculator(rows);
             Debug.WriteLine("omgange sål i centimeter: " + roundsOfSole);
+
+            double masksInMiddelHeel = createNewSockPatternCalculator.MasksInMiddelHeel();
+            Debug.WriteLine("TEST: " + masksInMiddelHeel);
         }
     }
 }
