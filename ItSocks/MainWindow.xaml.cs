@@ -36,24 +36,19 @@ namespace ItSocks
             shoeSize.Add(46);
 
             ShoeSize.ItemsSource = shoeSize;
-            
         }
 
         private void Calculat_Click(object sender, RoutedEventArgs e)
         {
+            int sizeOfShoe = (int)ShoeSize.SelectedItem;
+
             CreateNewSockController createNewSockController = new CreateNewSockController();
-            createNewSockController.CarryPattern(mask, rows, shoeSize[6], cuffSizeInCentimeters, countOfMasksInTheMiddel, roundsForToe, maskOnHeel);
+            createNewSockController.CarryPattern(mask, rows, sizeOfShoe, cuffSizeInCentimeters, countOfMasksInTheMiddel, roundsForToe, maskOnHeel);
+
+            Debug.WriteLine(sizeOfShoe);
+            
         }
 
-        //Godt note til mig selv:
-        //nedestående kode kan finde ud af at fortælle hvad der står i min listbox på et bestemt index
-        //Jeg skal have fat i mit resultat og føre det med vidre til min knap hvor jeg pt statisk har noteret "43" for sko str. 
-        //bed Mikkel om hjælp til dette onsdag
-        private void ShoeSize_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            ListBoxItem lbi = (ListBoxItem) (ShoeSize.ItemContainerGenerator.ContainerFromIndex(0));
-
-            Debug.WriteLine("The contents of the item at index 0 are: " + (lbi.Content.ToString()) + ".");
-        }
+        
     }
 }

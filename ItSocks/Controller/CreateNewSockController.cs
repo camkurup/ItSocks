@@ -13,7 +13,7 @@ namespace ItSocks.Controller
         CreateNewSockPatternCalculator createNewSockPatternCalculator = new CreateNewSockPatternCalculator();
         public void CarryPattern(int masks, int rows, int shoeSize, double cuffSizeInCentimeters, int countOfMasksInTheMiddel, int roundsForToe, int masksOnHeel)
         {
-            double startingNumberOfMasks = createNewSockPatternCalculator.CastOnMasksCalculator(masks);
+            double startingNumberOfMasks = createNewSockPatternCalculator.CastOnMasksCalculator(masks, shoeSize);
             Debug.WriteLine("Antal masker der skal slåes op " + startingNumberOfMasks);
 
             double rounds = createNewSockPatternCalculator.RoundsOfCuffCalculator(rows, cuffSizeInCentimeters);

@@ -20,20 +20,18 @@
                 <Label>Strikkefasthed</Label>
                 
                 <Label>Maske:</Label>
-                <TextBox x:Name="KnittingGaugM"/>
+                <TextBox x:Name="Masks"/>
 
                 <Label>Pind:</Label>
-                <TextBox x:Name="KnittingGaugP"/>
+                <TextBox x:Name="Rows"/>
 
             </StackPanel>
 
             <Label>Sko størrelse</Label>
             <ListBox 
                 Height="100" 
-                x:Name="ShoeSize" 
-                SelectionChanged="ShoeSize_SelectionChanged">
-                
-            </ListBox>
+                x:Name="ShoeSize"/>
+            
             <Button 
                 x:Name="Calculat" 
                 Click="Calculat_Click"
@@ -45,8 +43,9 @@
             Grid.Row="1"
             Margin="10">
             <Label 
+                x:Name="result"
                 Background="Teal"
-                Padding="10"> Antal af masker slåes op: </Label>
+                Padding="10">Antal af masker slåes op:</Label>
             <TextBox 
                 x:Name="NumberOfMAsks" 
                 Background="LightSeaGreen"
@@ -54,7 +53,5 @@
                 Padding="10"/>
 
         </StackPanel>
-        
-        
     </Grid>
 </Window>

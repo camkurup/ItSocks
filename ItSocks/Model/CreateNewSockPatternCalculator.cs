@@ -10,11 +10,52 @@ namespace ItSocks.Data
 {
     public class CreateNewSockPatternCalculator
     {
-        public double CastOnMasksCalculator(int masks)
+        public double CastOnMasksCalculator(int masks, int shoeSize)
         {
             //Index 0-9 in SockPerimeter correspond to the following shoe size:
             //[37, 38, 39, 40, 41, 42, 43, 44, 45, 46]
-            double perimeter = double.Parse(Properties.Settings.Default.SockPerimeter.Split('-')[6]);
+            switch (shoeSize)
+            {
+                case 37:
+                    shoeSize = 0;
+                    break;
+                case 38:
+                    shoeSize = 1;
+                    break;
+                case 39:
+                    shoeSize = 2;
+                    break;
+                case 40:
+                    shoeSize = 3;
+                    break;
+                case 41:
+                    shoeSize = 4;
+                    break;
+                case 42:
+                    shoeSize = 5;
+                    break;
+                case 43:
+                    shoeSize = 6;
+                    break;
+                case 44:
+                    shoeSize = 7;
+                    break;
+                case 45:
+                    shoeSize = 8;
+                    break;
+                case 46:
+                    shoeSize = 9;
+                    break;
+                default:
+                    Debug.WriteLine("Noget gik galt: det valgte tal er ikke i arrayet");
+                    break;
+            }
+
+            if (shoeSize == 37)
+            {
+                shoeSize = 0;
+            }
+            double perimeter = double.Parse(Properties.Settings.Default.SockPerimeter.Split('-')[shoeSize]);
             double numberOfMasks = (perimeter / 10.0) * masks;
 
             //Perhaps a "Round off" by 4 is making the pattern to imprecise
@@ -29,8 +70,6 @@ namespace ItSocks.Data
 
         public double RoundsOfCuffCalculator(int rows, double cuffSizeInCentimeter)
         {
-            rows = 32;
-            cuffSizeInCentimeter = 2.5;
             double numberOfRounds = (cuffSizeInCentimeter/10) * rows;
 
             return numberOfRounds;
@@ -38,10 +77,6 @@ namespace ItSocks.Data
 
         public double HeelInCentimetersCalculator(double rows, double masksOnHeel, int countOfMasksInTheMiddel) 
         {
-            rows = 32;
-            masksOnHeel = 30;
-            countOfMasksInTheMiddel = 10;
-
             double heelInCentimeter = (10/rows) * (masksOnHeel-countOfMasksInTheMiddel);
 
             return heelInCentimeter;
