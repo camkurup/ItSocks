@@ -14,8 +14,6 @@ namespace ItSocks
     {
         List<int> shoeSize = new List<int>();
        
-
-
         public MainWindow()
         {
             InitializeComponent();
@@ -38,6 +36,7 @@ namespace ItSocks
             int sizeOfShoe = (int)ShoeSize.SelectedItem;
             int masks = Convert.ToInt32(Masks.Text);
             int rows = Convert.ToInt32(Rows.Text);
+            //
             double cuffSizeInCentimeters = 2.5;
             int countOfMasksInTheMiddel = 10;
             int roundsForToe = 17;
