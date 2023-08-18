@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media.Imaging;
 
 namespace ItSocks
 {
@@ -29,8 +30,73 @@ namespace ItSocks
             shoeSize.Add(46);
 
             ShoeSize.ItemsSource = shoeSize;
+
+            ManchetIMG();
+            ShaftIMG();
+            HeelMG();
+            SoelIMG();
+            ToeIMG();
+
+        }
+        public void ManchetIMG()
+        {
+            for (int i = 0; i < 10; i++)
+            {
+                Image im = new Image();
+                im.Height = 50;
+                im.Width = 50;
+                im.Source = new BitmapImage(new Uri(@"C:\Users\CKU\Documents\Skole\H5\Prøve-Svendeprøve\ItSocks\ItSocks\Img\placeholder.png"));
+                Manchet.Children.Add(im);
+            }
         }
 
+        public void ShaftIMG()
+        {
+            for (int i = 0; i < 10; i++)
+            {
+                Image im = new Image();
+                im.Height = 50;
+                im.Width = 50;
+                im.Source = new BitmapImage(new Uri(@"C:\Users\CKU\Documents\Skole\H5\Prøve-Svendeprøve\ItSocks\ItSocks\Img\placeholder.png"));
+                Shaft.Children.Add(im);
+            }
+        }
+
+        public void HeelMG()
+        {
+            for (int i = 0; i < 10; i++)
+            {
+                Image im = new Image();
+                im.Height = 50;
+                im.Width = 50;
+                im.Source = new BitmapImage(new Uri(@"C:\Users\CKU\Documents\Skole\H5\Prøve-Svendeprøve\ItSocks\ItSocks\Img\placeholder.png"));
+                Heel.Children.Add(im);
+            }
+        }
+
+        public void SoelIMG()
+        {
+            for (int i = 0; i < 10; i++)
+            {
+                Image im = new Image();
+                im.Height = 50;
+                im.Width = 50;
+                im.Source = new BitmapImage(new Uri(@"C:\Users\CKU\Documents\Skole\H5\Prøve-Svendeprøve\ItSocks\ItSocks\Img\placeholder.png"));
+                Soel.Children.Add(im);
+            }
+        }
+
+        public void ToeIMG()
+        {
+            for (int i = 0; i < 10; i++)
+            {
+                Image im = new Image();
+                im.Height = 50;
+                im.Width = 50;
+                im.Source = new BitmapImage(new Uri(@"C:\Users\CKU\Documents\Skole\H5\Prøve-Svendeprøve\ItSocks\ItSocks\Img\placeholder.png"));
+                Toe.Children.Add(im);
+            }
+        }
         private void Calculat_Click(object sender, RoutedEventArgs e)
         {
             int sizeOfShoe = (int)ShoeSize.SelectedItem;
@@ -43,13 +109,11 @@ namespace ItSocks
             int roundsForToe = 17;
             int maskOnHeel = 30;
 
-            CreateNewSockController createNewSockController = new CreateNewSockController();
+            CreateSockController createNewSockController = new CreateSockController();
             createNewSockController.CarryPattern(masks, rows, sizeOfShoe, cuffSizeInCentimeters, countOfMasksInTheMiddel, roundsForToe, maskOnHeel);
 
             Debug.WriteLine(masks);
             
         }
-
-        
     }
 }

@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace ItSocks.Data
 {
-    public class CreateNewSockPatternCalculator
+    public class CreateSock
     {
         //Perhaps it would be smart to create a chek on there is used a minimum count of masks.
         //It should not be posilbe to create soks with at knittingGauge on only a few masks

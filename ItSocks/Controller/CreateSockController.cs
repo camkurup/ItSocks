@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace ItSocks.Controller
 {
-    public class CreateNewSockController
+    public class CreateSockController
     {
-        CreateNewSockPatternCalculator createNewSockPatternCalculator = new CreateNewSockPatternCalculator();
+        CreateSock createNewSockPatternCalculator = new CreateSock();
         public void CarryPattern(int masks, int rows, int shoeSize, double cuffSizeInCentimeters, int countOfMasksInTheMiddel, int roundsForToe, int masksOnHeel)
         {
             double startingNumberOfMasks = createNewSockPatternCalculator.CastOnMasksCalculator(masks, shoeSize);

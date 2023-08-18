@@ -81,143 +81,45 @@
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
+
                 <StackPanel
-                    Grid.Row="0">
-                    <StackPanel
-                        Orientation="Horizontal">
-                        <Label
-                            Width="75">Manchet:</Label>
-                        <Image
-                            Height="50"
-                            Width="50"
-                            Margin="0,10,10,0">
-                            <Image.Source>
-                                <BitmapImage 
-                                    DecodePixelWidth="100"
-                                    UriSource="C:\Users\CKU\Documents\Skole\H5\Prøve-Svendeprøve\ItSocks\ItSocks\Img\placeholder.png"></BitmapImage>
-                            </Image.Source>
-                        </Image>
-                        <Image
-                            Height="50"
-                            Width="50"
-                            Margin="0,10,10,0">
-                            <Image.Source>
-                                <BitmapImage 
-                                    DecodePixelWidth="100"
-                                    UriSource="C:\Users\CKU\Documents\Skole\H5\Prøve-Svendeprøve\ItSocks\ItSocks\Img\placeholder.png"></BitmapImage>
-                            </Image.Source>
-                        </Image>
-                    </StackPanel>
+                    Grid.Row="0"
+                    x:Name="Manchet"
+                    Orientation="Horizontal">
+                    <Label
+                        Width="75">Manchet:</Label>
+                </StackPanel>
+                
+                <StackPanel
+                    Grid.Row="1"
+                    x:Name="Shaft"
+                    Orientation="Horizontal">
+                    <Label
+                        Width="75">Skaft:</Label>
+                </StackPanel>
                         
-                </StackPanel>
-                <StackPanel
-                    Grid.Row="1">
-
-                    <StackPanel
-                        Orientation="Horizontal">
-                        <Label
-                            Width="75">Skaft:</Label>
-                        <Image
-                            Height="50"
-                            Width="50"
-                            Margin="0,10,10,0">
-                            <Image.Source>
-                                <BitmapImage 
-                                    DecodePixelWidth="100"
-                                    UriSource="C:\Users\CKU\Documents\Skole\H5\Prøve-Svendeprøve\ItSocks\ItSocks\Img\placeholder.png"></BitmapImage>
-                            </Image.Source>
-                        </Image>
-                        <Image
-                            Height="50"
-                            Width="50"
-                            Margin="0,10,10,0">
-                            <Image.Source>
-                                <BitmapImage 
-                                    DecodePixelWidth="100"
-                                    UriSource="C:\Users\CKU\Documents\Skole\H5\Prøve-Svendeprøve\ItSocks\ItSocks\Img\placeholder.png"></BitmapImage>
-                            </Image.Source>
-                        </Image>
-                    </StackPanel>
-
-                </StackPanel>
-
                 <StackPanel
                     Grid.Row="2"
+                    x:Name="Heel"
                     Orientation="Horizontal">
                     <Label
-                        Width="75">Hæl:</Label>
-                    <Image
-                        Height="50"
-                        Width="50"
-                        Margin="0,10,10,0">
-                        <Image.Source>
-                            <BitmapImage 
-                                DecodePixelWidth="100"
-                                UriSource="C:\Users\CKU\Documents\Skole\H5\Prøve-Svendeprøve\ItSocks\ItSocks\Img\placeholder.png"></BitmapImage>
-                        </Image.Source>
-                    </Image>
-                    <Image
-                        Height="50"
-                        Width="50"
-                        Margin="0,10,10,0">
-                        <Image.Source>
-                            <BitmapImage 
-                                DecodePixelWidth="100"
-                                UriSource="C:\Users\CKU\Documents\Skole\H5\Prøve-Svendeprøve\ItSocks\ItSocks\Img\placeholder.png"></BitmapImage>
-                        </Image.Source>
-                    </Image>
+                        Width="75">Hæl:</Label>                    
                 </StackPanel>
+                
                 <StackPanel
                     Grid.Row="3"
+                    x:Name="Soel"
                     Orientation="Horizontal">
                     <Label
-                        Width="75">Sål:</Label>
-                    <Image
-                        Height="50"
-                        Width="50"
-                        Margin="0,10,10,0">
-                        <Image.Source>
-                            <BitmapImage 
-                                DecodePixelWidth="100"
-                                UriSource="C:\Users\CKU\Documents\Skole\H5\Prøve-Svendeprøve\ItSocks\ItSocks\Img\placeholder.png"></BitmapImage>
-                        </Image.Source>
-                    </Image>
-                    <Image
-                        Height="50"
-                        Width="50"
-                        Margin="0,10,10,0">
-                        <Image.Source>
-                            <BitmapImage 
-                                DecodePixelWidth="100"
-                                UriSource="C:\Users\CKU\Documents\Skole\H5\Prøve-Svendeprøve\ItSocks\ItSocks\Img\placeholder.png"></BitmapImage>
-                        </Image.Source>
-                    </Image>
+                        Width="75">Sål:</Label>                    
                 </StackPanel>
+                
                 <StackPanel
                     Grid.Row="4"
+                    x:Name="Toe"
                     Orientation="Horizontal">
                     <Label
                         Width="75">Tå:</Label>
-                    <Image
-                        Height="50"
-                        Width="50"
-                        Margin="0,10,10,0">
-                        <Image.Source>
-                            <BitmapImage 
-                                DecodePixelWidth="100"
-                                UriSource="C:\Users\CKU\Documents\Skole\H5\Prøve-Svendeprøve\ItSocks\ItSocks\Img\placeholder.png"></BitmapImage>
-                        </Image.Source>
-                    </Image>
-                    <Image
-                        Height="50"
-                        Width="50"
-                        Margin="0,10,10,0">
-                        <Image.Source>
-                            <BitmapImage 
-                                DecodePixelWidth="100"
-                                UriSource="C:\Users\CKU\Documents\Skole\H5\Prøve-Svendeprøve\ItSocks\ItSocks\Img\placeholder.png"></BitmapImage>
-                        </Image.Source>
-                    </Image>
                 </StackPanel>
             </Grid>
 
@@ -245,6 +147,9 @@
                     VerticalAlignment="Bottom">
                     Gem som PDF
                 </Button>
+
+                <Label
+                    Background="LightCyan">Placeholder</Label>
                 
             </StackPanel>
             
