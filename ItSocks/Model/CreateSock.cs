@@ -115,6 +115,8 @@ namespace ItSocks.Data
             return heelInCentimeter;
         }
 
+
+        //Yep, here I need to create af methode that takes finds the "roundsForToe"v it should not be a parameter given by the ui
         public double ToeInCentimeterCalculator(int rows, int roundsForToe)
         {
             double container = (10.0 / rows) * roundsForToe;

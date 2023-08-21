@@ -96,7 +96,7 @@
                             Width="75">Rib i cm.:</Label>
                         
                         <Slider
-                            Name="slValueRib" 
+                            Name="slValueCuff" 
                             Minimum="2.5" 
                             Maximum="10" 
                             TickFrequency="0.5" 
@@ -104,7 +104,7 @@
                         
                     </StackPanel>
                     <TextBox 
-                        Text="{Binding ElementName=slValueRib, Path=Value, UpdateSourceTrigger=PropertyChanged}" 
+                        Text="{Binding ElementName=slValueCuff, Path=Value, UpdateSourceTrigger=PropertyChanged}" 
                         Width="40"
                         Height="20"/>   
                 </StackPanel>

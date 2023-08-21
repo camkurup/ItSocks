@@ -10,25 +10,25 @@ namespace ItSocks.Controller
 {
     public class CreateSockController
     {
-        CreateSock createNewSockPatternCalculator = new CreateSock();
-        public void CarryPattern(int masks, int rows, int shoeSize, double cuffSizeInCentimeters, int countOfMasksInTheMiddel, int roundsForToe, int masksOnHeel)
+        CreateSock createSock = new CreateSock();
+        public void CarryPattern(int masks, int rows, int shoeSize, double cuffSizeInCentimeters)
         {
-            double startingNumberOfMasks = createNewSockPatternCalculator.CastOnMasksCalculator(masks, shoeSize);
+            double startingNumberOfMasks = createSock.CastOnMasksCalculator(masks, shoeSize);
             Debug.WriteLine("Antal masker der skal slåes op " + startingNumberOfMasks);
 
-            double rounds = createNewSockPatternCalculator.RoundsOfCuffCalculator(rows, cuffSizeInCentimeters);
+            double rounds = createSock.RoundsOfCuffCalculator(rows, cuffSizeInCentimeters);
             Debug.WriteLine("Antal omgange der skal strikkes " + rounds);
 
-            double heelInCentimeter = createNewSockPatternCalculator.HeelInCentimetersCalculator(rows);
+            double heelInCentimeter = createSock.HeelInCentimetersCalculator(rows);
             Debug.WriteLine("Hælen skal være " +  heelInCentimeter + " cm.");
 
-            double toeInCentimeter = createNewSockPatternCalculator.ToeInCentimeterCalculator(rows, roundsForToe);
+            double toeInCentimeter = createSock.ToeInCentimeterCalculator(rows);
             Debug.WriteLine("Tå i Centimeter: " + toeInCentimeter);
 
-            double roundsOfSole = createNewSockPatternCalculator.RoundsOfSoleCalculator(rows);
+            double roundsOfSole = createSock.RoundsOfSoleCalculator(rows);
             Debug.WriteLine("omgange sål i centimeter: " + roundsOfSole);
 
-            double masksInMiddelHeel = createNewSockPatternCalculator.MasksInMiddelHeel();
+            double masksInMiddelHeel = createSock.MasksInMiddelHeel();
             Debug.WriteLine("TEST: " + masksInMiddelHeel);
         }
     }
