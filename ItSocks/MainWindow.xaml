@@ -87,15 +87,40 @@
                     x:Name="Manchet"
                     Orientation="Horizontal">
                     <Label
-                        Width="75">Manchet:</Label>
+                        Width="75"
+                       >Manchet:</Label>
+
+                    <StackPanel 
+                        VerticalAlignment="Center">
+                        <Label
+                            Width="75">Rib i cm.:</Label>
+                        <Slider Minimum="1" 
+                                Maximum="10" 
+                                TickPlacement="BottomRight" 
+                                TickFrequency="1" 
+                                IsSnapToTickEnabled="True"/>
+                    </StackPanel>
+
                 </StackPanel>
-                
+
                 <StackPanel
                     Grid.Row="1"
                     x:Name="Shaft"
                     Orientation="Horizontal">
                     <Label
-                        Width="75">Skaft:</Label>
+                        Width="75"
+                        >Skaft:</Label>
+                    <StackPanel 
+                        VerticalAlignment="Center">
+                        <Label 
+                            Width="75">Skaft i cm.:</Label>
+                        <Slider 
+                            Minimum="1" 
+                            Maximum="10" 
+                            TickPlacement="BottomRight" 
+                            TickFrequency="1" 
+                            IsSnapToTickEnabled="True"  />
+                    </StackPanel>
                 </StackPanel>
                         
                 <StackPanel

@@ -40,7 +40,7 @@ namespace ItSocks
         }
         public void ManchetIMG()
         {
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i < 5; i++)
             {
                 Image im = new Image();
                 im.Height = 50;
@@ -52,7 +52,7 @@ namespace ItSocks
 
         public void ShaftIMG()
         {
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i < 5; i++)
             {
                 Image im = new Image();
                 im.Height = 50;
@@ -99,6 +99,7 @@ namespace ItSocks
         }
         private void Calculat_Click(object sender, RoutedEventArgs e)
         {
+            //sizeOfShoe have to be selected by the user, other wise the code will braek. i have to set a default sulution on it so i doesnt braek
             int sizeOfShoe = (int)ShoeSize.SelectedItem;
             int masks = Convert.ToInt32(Masks.Text);
             int rows = Convert.ToInt32(Rows.Text);
