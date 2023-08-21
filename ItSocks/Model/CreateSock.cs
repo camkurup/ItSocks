@@ -115,10 +115,16 @@ namespace ItSocks.Data
             return heelInCentimeter;
         }
 
-
-        //Yep, here I need to create af methode that takes finds the "roundsForToe"v it should not be a parameter given by the ui
-        public double ToeInCentimeterCalculator(int rows, int roundsForToe)
+        //this is static for now. I'll get back to making this dynamic at a later point
+        public int RoundsForToe()
         {
+            int roundsForToe = 17;
+            return roundsForToe;
+        }
+
+        public double ToeInCentimeterCalculator(int rows)
+        {
+            int roundsForToe = RoundsForToe();
             double container = (10.0 / rows) * roundsForToe;
             double toeInCentimeter = (double)Math.Round(container);
 
@@ -127,7 +133,7 @@ namespace ItSocks.Data
 
         public double LengthOfSoleCalculator(double lengthOfFood)
         {
-            double lengthOfSole = (lengthOfFood - (lengthOfFood * 0.1)) - (HeelInCentimetersCalculator(32) + ToeInCentimeterCalculator(32, 17));
+            double lengthOfSole = (lengthOfFood - (lengthOfFood * 0.1)) - (HeelInCentimetersCalculator(32) + ToeInCentimeterCalculator(32));
             Debug.WriteLine("lengthOfSole: " + lengthOfSole);
             return lengthOfSole;
         }
