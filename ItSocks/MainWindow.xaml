@@ -94,13 +94,19 @@
                         VerticalAlignment="Center">
                         <Label
                             Width="75">Rib i cm.:</Label>
-                        <Slider Minimum="1" 
-                                Maximum="10" 
-                                TickPlacement="BottomRight" 
-                                TickFrequency="1" 
-                                IsSnapToTickEnabled="True"/>
+                        
+                        <Slider
+                            Name="slValueRib" 
+                            Minimum="2.5" 
+                            Maximum="10" 
+                            TickFrequency="0.5" 
+                            IsSnapToTickEnabled="True"/>
+                        
                     </StackPanel>
-
+                    <TextBox 
+                        Text="{Binding ElementName=slValueRib, Path=Value, UpdateSourceTrigger=PropertyChanged}" 
+                        Width="40"
+                        Height="20"/>   
                 </StackPanel>
 
                 <StackPanel
@@ -115,12 +121,16 @@
                         <Label 
                             Width="75">Skaft i cm.:</Label>
                         <Slider 
-                            Minimum="1" 
-                            Maximum="10" 
-                            TickPlacement="BottomRight" 
-                            TickFrequency="1" 
+                            Name="slValueShaft"
+                            Minimum="1.5" 
+                            Maximum="50" 
+                            TickFrequency="0.5" 
                             IsSnapToTickEnabled="True"  />
                     </StackPanel>
+                    <TextBox 
+                        Text="{Binding ElementName=slValueShaft, Path=Value, UpdateSourceTrigger=PropertyChanged}" 
+                        Width="40"
+                        Height="20"/>
                 </StackPanel>
                         
                 <StackPanel
