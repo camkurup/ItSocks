@@ -105,15 +105,8 @@ namespace ItSocks
             int rows = Convert.ToInt32(Rows.Text);
             double cuffSizeInCentimeters = Convert.ToInt32(slValueCuff.Value);
 
-            //Some of the will come from UI and some is from Backend in the calculator(CreateNewSockController)
-            //nt roundsForToe = 17;
-            //int maskOnHeel = 30;
-            //int countOfMasksInTheMiddel = 1;
-
             CreateSockController createSockController = new CreateSockController();
-            createSockController.CarryPattern(masks, rows, sizeOfShoe, cuffSizeInCentimeters);
-            
-            //Debug.WriteLine();
+            createSockController.CreatePattern(masks, rows, sizeOfShoe, cuffSizeInCentimeters);
             
         }
     }

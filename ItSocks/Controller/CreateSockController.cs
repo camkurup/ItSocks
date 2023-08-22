@@ -1,4 +1,5 @@
 ﻿using ItSocks.Data;
+using ItSocks.Model;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -11,7 +12,8 @@ namespace ItSocks.Controller
     public class CreateSockController
     {
         CreateSock createSock = new CreateSock();
-        public void CarryPattern(int masks, int rows, int shoeSize, double cuffSizeInCentimeters)
+        CreatePDF createPDF = new CreatePDF();
+        public void CreatePattern(int masks, int rows, int shoeSize, double cuffSizeInCentimeters)
         {
             double startingNumberOfMasks = createSock.CastOnMasksCalculator(masks, shoeSize);
             Debug.WriteLine("Antal masker der skal slåes op " + startingNumberOfMasks);
@@ -30,6 +32,11 @@ namespace ItSocks.Controller
 
             double masksInMiddelHeel = createSock.MasksInMiddelHeel();
             Debug.WriteLine("TEST: " + masksInMiddelHeel);
+        }
+
+        public void PreviewPAttern()
+        {
+
         }
     }
 }

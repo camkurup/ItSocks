@@ -28,6 +28,7 @@
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
+                
                 <StackPanel
                     Grid.Row="0"
                     Orientation="Horizontal"
@@ -35,40 +36,37 @@
                     Margin="10">
                     <StackPanel>
                         <Label>Strikkefasthed</Label>
-                        <StackPanel
-                            Orientation="Horizontal">
+                        <StackPanel Orientation="Horizontal">
                             <Label>Maske:</Label>
-                        <TextBox 
-                            x:Name="Masks"
-                            Width="50"
-                            Height="18"
-                            Margin="5,0,0,0"/>
+                            <TextBox 
+                                x:Name="Masks"
+                                Width="50"
+                                Height="18"
+                                Margin="5,0,0,0"/>
 
-                        <Label>Pind:</Label>
-                        <TextBox 
-                            x:Name="Rows"
-                            Width="50"
-                            Height="18"
-                            Margin="5,0,0,0"/>
+                            <Label>Pind:</Label>
+                            <TextBox 
+                                x:Name="Rows"
+                                Width="50"
+                                Height="18"
+                                Margin="5,0,0,0"/>
                         </StackPanel>
                         
                     </StackPanel>
                     <StackPanel
-                        
                         Orientation="Horizontal"
                         Margin="50,0,0,0">
-                        <Label>Sko størrelse:</Label>
-                    <ListBox 
-                        x:Name="ShoeSize"
-                        Width="150"
-                        Height="70" 
-                        d:ItemsSource="{d:SampleData ItemCount=5}" 
-                        VerticalAlignment="Top"/>
                         
+                        <Label>Sko størrelse:</Label>
+                        
+                        <ListBox 
+                            x:Name="ShoeSize"
+                            Width="150"
+                            Height="70" 
+                            d:ItemsSource="{d:SampleData ItemCount=5}" 
+                            VerticalAlignment="Top"/>
                     </StackPanel>
-                    
                 </StackPanel>
-                
             </Grid>
 
             <Grid
@@ -86,96 +84,88 @@
                     Grid.Row="0"
                     x:Name="Manchet"
                     Orientation="Horizontal">
-                    <Label
-                        Width="75"
-                       >Manchet:</Label>
+                    <Label Width="75">Manchet:</Label>
 
                     <StackPanel 
                         VerticalAlignment="Center">
                         <Label
                             Width="75">Rib i cm.:</Label>
-                        
+
                         <Slider
                             Name="slValueCuff" 
                             Minimum="2.5" 
                             Maximum="10" 
                             TickFrequency="0.5" 
                             IsSnapToTickEnabled="True"/>
-                        
                     </StackPanel>
+                    
                     <TextBox 
                         Text="{Binding ElementName=slValueCuff, Path=Value, UpdateSourceTrigger=PropertyChanged}" 
                         Width="40"
-                        Height="20"/>   
+                        Height="20"/>
                 </StackPanel>
 
                 <StackPanel
                     Grid.Row="1"
                     x:Name="Shaft"
                     Orientation="Horizontal">
-                    <Label
-                        Width="75"
-                        >Skaft:</Label>
+                    <Label Width="75">Skaft:</Label>
+
                     <StackPanel 
                         VerticalAlignment="Center">
-                        <Label 
-                            Width="75">Skaft i cm.:</Label>
+                        
+                        <Label Width="75">Skaft i cm.:</Label>
+
                         <Slider 
                             Name="slValueShaft"
                             Minimum="1.5" 
                             Maximum="50" 
                             TickFrequency="0.5" 
-                            IsSnapToTickEnabled="True"  />
+                            IsSnapToTickEnabled="True"/>
                     </StackPanel>
+                    
                     <TextBox 
                         Text="{Binding ElementName=slValueShaft, Path=Value, UpdateSourceTrigger=PropertyChanged}" 
                         Width="40"
                         Height="20"/>
                 </StackPanel>
-                        
+
                 <StackPanel
                     Grid.Row="2"
                     x:Name="Heel"
                     Orientation="Horizontal">
-                    <Label
-                        Width="75">Hæl:</Label>                    
+                    <Label Width="75">Hæl:</Label>
                 </StackPanel>
-                
+
                 <StackPanel
                     Grid.Row="3"
                     x:Name="Soel"
                     Orientation="Horizontal">
-                    <Label
-                        Width="75">Sål:</Label>                    
+                    <Label Width="75">Sål:</Label>
                 </StackPanel>
-                
+
                 <StackPanel
                     Grid.Row="4"
                     x:Name="Toe"
                     Orientation="Horizontal">
-                    <Label
-                        Width="75">Tå:</Label>
+                    <Label Width="75">Tå:</Label>
                 </StackPanel>
             </Grid>
-
         </Grid>
 
         <Grid
             x:Name="J"
-            Grid.Column="1">
-            <StackPanel
-                Margin="20">
+            Grid.Column="1"
+            Margin="20">
+            <StackPanel>
                 <Label>Sokke Design</Label>
 
-                <Image
-                    Margin="0,50,0,50">
-                    <Image.Source>
-                        <BitmapImage 
-                            DecodePixelWidth="100"
-                            UriSource="C:\Users\CKU\Documents\Skole\H5\Prøve-Svendeprøve\ItSocks\ItSocks\Img\placeholder.png"></BitmapImage>
-                    </Image.Source>
-                </Image>
-                
+                <Label Content="Manchet"/>
+                <Label Content="Skaft"/>
+                <Label Content="Hæl"/>
+                <Label Content="Sål"/>
+                <Label Content="Tå"/>
+
                 <Button 
                     x:Name="Calculat" 
                     Click="Calculat_Click"
@@ -183,12 +173,7 @@
                     Gem som PDF
                 </Button>
 
-                <Label
-                    Background="LightCyan">Placeholder</Label>
-                
             </StackPanel>
-            
         </Grid>
-   
     </Grid>
 </Window>
