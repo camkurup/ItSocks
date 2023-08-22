@@ -1,4 +1,5 @@
 ﻿using ItSocks.Controller;
+using ItSocks.Model;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -108,6 +109,39 @@ namespace ItSocks
             CreateSockController createSockController = new CreateSockController();
             createSockController.CreatePattern(masks, rows, sizeOfShoe, cuffSizeInCentimeters);
             
+        }
+
+        private void Masks_LostFocus(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                if (ShoeSize.SelectedItem != null)
+                {
+                    int sizeOfShoe = (int)ShoeSize.SelectedItem;
+                    int masks = Convert.ToInt32(Masks.Text);
+                    int rows = Convert.ToInt32(Rows.Text);
+                    double cuffSizeInCentimeters = Convert.ToInt32(slValueCuff.Value);
+
+                    if (sizeOfShoe > 0 && masks > 0 && rows > 0)
+                    {
+                        CreateSockController createSockController = new CreateSockController();
+                        createSockController.SockCalculated += SockCreated;
+                        createSockController.CreatePattern(masks, rows, sizeOfShoe, cuffSizeInCentimeters);
+
+                    }
+                }
+            }
+            catch
+            {
+                //empty Catch
+            }
+            
+        }
+
+        private void SockCreated(object? sender, EventArgs e)
+        {
+            SockEventArgs sockEventArgs = (SockEventArgs)e;
+            lbl_Cuff.Content = "Manchet: " + sockEventArgs.Sock.Cuff;
         }
     }
 }

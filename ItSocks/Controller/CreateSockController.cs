@@ -11,6 +11,7 @@ namespace ItSocks.Controller
 {
     public class CreateSockController
     {
+        public event EventHandler SockCalculated;
         CreateSock createSock = new CreateSock();
         CreatePDF createPDF = new CreatePDF();
         public void CreatePattern(int masks, int rows, int shoeSize, double cuffSizeInCentimeters)
@@ -32,9 +33,14 @@ namespace ItSocks.Controller
 
             double masksInMiddelHeel = createSock.MasksInMiddelHeel();
             Debug.WriteLine("TEST: " + masksInMiddelHeel);
+
+            Sock sock = new Sock(cuffSizeInCentimeters);
+
+            SockCalculated?.Invoke(this, new SockEventArgs(sock));
         }
 
-        public void PreviewPAttern()
+       
+        public void PreviewPattern()
         {
 
         }

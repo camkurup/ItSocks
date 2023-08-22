@@ -42,7 +42,7 @@
                                 x:Name="Masks"
                                 Width="50"
                                 Height="18"
-                                Margin="5,0,0,0"/>
+                                Margin="5,0,0,0" LostFocus="Masks_LostFocus"/>
 
                             <Label>Pind:</Label>
                             <TextBox 
@@ -160,11 +160,11 @@
             <StackPanel>
                 <Label>Sokke Design</Label>
 
-                <Label Content="Manchet"/>
-                <Label Content="Skaft"/>
-                <Label Content="Hæl"/>
-                <Label Content="Sål"/>
-                <Label Content="Tå"/>
+                <Label x:Name="lbl_Cuff" Content="Manchet: "/>
+                <Label Content="Skaft: "/>
+                <Label Content="Hæl: "/>
+                <Label Content="Sål: "/>
+                <Label Content="Tå: "/>
 
                 <Button 
                     x:Name="Calculat" 
