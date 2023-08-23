@@ -135,13 +135,16 @@ namespace ItSocks
             {
                 //empty Catch
             }
-            
         }
 
         private void SockCreated(object? sender, EventArgs e)
         {
             SockEventArgs sockEventArgs = (SockEventArgs)e;
-            lbl_Cuff.Content = "Manchet: " + sockEventArgs.Sock.Cuff;
+            lbl_Cuff.Content = "Manchet:A  " + sockEventArgs.Sock.Cuff;
+            lbl_Shaft.Content = "Skaft: " + sockEventArgs.Sock.Shaft; 
+            lbl_Heel.Content = "Hæl: " + sockEventArgs.Sock.Heel; 
+            lbl_Soel.Content = "Sål: " + sockEventArgs.Sock.Soel;
+            lbl_Toe.Content = "Tå: " + sockEventArgs.Sock.Toe;
         }
     }
 }

@@ -13,7 +13,7 @@ namespace ItSocks.Data
     {
         //Perhaps it would be smart to create a chek on there is used a minimum count of masks.
         //It should not be posilbe to create soks with at knittingGauge on only a few masks
-        public double CastOnMasksCalculator(int masks, int shoeSize)
+        public async Task<double> CastOnMasksCalculator(int masks, int shoeSize)
         {
             //Index 0-9 in SockPerimeter correspond to the following shoe size:
             //[37, 38, 39, 40, 41, 42, 43, 44, 45, 46]
@@ -68,10 +68,10 @@ namespace ItSocks.Data
                 numberOfMasks= x*4.0;
             }
 
-            return  numberOfMasks;
+            return numberOfMasks;
         }
 
-        public double RoundsOfCuffCalculator(int rows, double cuffSizeInCentimeter)
+        public async Task<double> RoundsOfCuffCalculator(int rows, double cuffSizeInCentimeter)
         {
             double container = (cuffSizeInCentimeter/10) * rows;
 
@@ -80,9 +80,9 @@ namespace ItSocks.Data
             return numberOfRounds;
         }
 
-        public double MasksInMiddelHeel()
+        public async Task<double> MasksInMiddelHeel()
         {
-            int totalNumberOfMasks = (int)CastOnMasksCalculator(24, 43) / 2;
+            int totalNumberOfMasks = (int)await CastOnMasksCalculator(24, 43) / 2;
             int masksOnHeel = totalNumberOfMasks;
             int modulusOffHeel = masksOnHeel % 3;
 
@@ -105,10 +105,10 @@ namespace ItSocks.Data
             return countOfMasksInTheMiddel;
         }
 
-        public double HeelInCentimetersCalculator(double rows) 
+        public async Task<double> HeelInCentimetersCalculator(double rows) 
         {
-            double masksOnHeel = CastOnMasksCalculator(24,43) / 2;
-            double container = (10/rows) * (masksOnHeel-(double)MasksInMiddelHeel());
+            double masksOnHeel = await CastOnMasksCalculator(24,43) / 2;
+            double container = (10/rows) * (masksOnHeel-(double)await MasksInMiddelHeel());
 
             double heelInCentimeter = (double)Math.Round(container);
 
@@ -116,31 +116,31 @@ namespace ItSocks.Data
         }
 
         //this is static for now. I'll get back to making this dynamic at a later point
-        public int RoundsForToe()
+        public async Task<int> RoundsForToe()
         {
             int roundsForToe = 17;
             return roundsForToe;
         }
 
-        public double ToeInCentimeterCalculator(int rows)
+        public async Task<double> ToeInCentimeterCalculator(int rows)
         {
-            int roundsForToe = RoundsForToe();
+            int roundsForToe = await RoundsForToe();
             double container = (10.0 / rows) * roundsForToe;
             double toeInCentimeter = (double)Math.Round(container);
 
             return toeInCentimeter;
         }
 
-        public double LengthOfSoleCalculator(double lengthOfFood)
+        public async Task<double> LengthOfSoleCalculator(double lengthOfFood)
         {
-            double lengthOfSole = (lengthOfFood - (lengthOfFood * 0.1)) - (HeelInCentimetersCalculator(32) + ToeInCentimeterCalculator(32));
+            double lengthOfSole = (lengthOfFood - (lengthOfFood * 0.1)) - (await HeelInCentimetersCalculator(32) + await ToeInCentimeterCalculator(32));
             Debug.WriteLine("lengthOfSole: " + lengthOfSole);
             return lengthOfSole;
         }
 
-        public double RoundsOfSoleCalculator(int rows)
+        public async Task<double> RoundsOfSoleCalculator(int rows)
         {
-            double container = (LengthOfSoleCalculator(27.5)/10) * rows;
+            double container = (await LengthOfSoleCalculator(27.5)/10) * rows;
             double roundsOfSole = (double)Math.Round(container);
             return roundsOfSole;
         }

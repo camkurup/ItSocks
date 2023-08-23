@@ -161,10 +161,10 @@
                 <Label>Sokke Design</Label>
 
                 <Label x:Name="lbl_Cuff" Content="Manchet: "/>
-                <Label Content="Skaft: "/>
-                <Label Content="Hæl: "/>
-                <Label Content="Sål: "/>
-                <Label Content="Tå: "/>
+                <Label x:Name="lbl_Shaft" Content="Skaft: "/>
+                <Label x:Name="lbl_Heel" Content="Hæl: "/>
+                <Label x:Name="lbl_Soel" Content="Sål: "/>
+                <Label x:Name="lbl_Toe" Content="Tå: "/>
 
                 <Button 
                     x:Name="Calculat" 

@@ -14,35 +14,32 @@ namespace ItSocks.Controller
         public event EventHandler SockCalculated;
         CreateSock createSock = new CreateSock();
         CreatePDF createPDF = new CreatePDF();
-        public void CreatePattern(int masks, int rows, int shoeSize, double cuffSizeInCentimeters)
+        public async void CreatePattern(int masks, int rows, int shoeSize, double cuffSizeInCentimeters)
         {
-            double startingNumberOfMasks = createSock.CastOnMasksCalculator(masks, shoeSize);
+            double startingNumberOfMasks = await createSock.CastOnMasksCalculator(masks, shoeSize);
+
+            double roundsOnCuff = await createSock.RoundsOfCuffCalculator(rows, cuffSizeInCentimeters);
+
+            double heelInCentimeter = await createSock.HeelInCentimetersCalculator(rows);
+
+            double toeInCentimeter = await createSock.ToeInCentimeterCalculator(rows);
+
+            double roundsOfSole = await createSock.RoundsOfSoleCalculator(rows);
+
+            double masksInMiddelHeel = await createSock.MasksInMiddelHeel();
+
+           
             Debug.WriteLine("Antal masker der skal slåes op " + startingNumberOfMasks);
-
-            double rounds = createSock.RoundsOfCuffCalculator(rows, cuffSizeInCentimeters);
-            Debug.WriteLine("Antal omgange der skal strikkes " + rounds);
-
-            double heelInCentimeter = createSock.HeelInCentimetersCalculator(rows);
-            Debug.WriteLine("Hælen skal være " +  heelInCentimeter + " cm.");
-
-            double toeInCentimeter = createSock.ToeInCentimeterCalculator(rows);
+            Debug.WriteLine("Antal omgange der skal strikkes " + roundsOnCuff);
+            Debug.WriteLine("Hælen skal være " + heelInCentimeter + " cm.");
             Debug.WriteLine("Tå i Centimeter: " + toeInCentimeter);
-
-            double roundsOfSole = createSock.RoundsOfSoleCalculator(rows);
             Debug.WriteLine("omgange sål i centimeter: " + roundsOfSole);
-
-            double masksInMiddelHeel = createSock.MasksInMiddelHeel();
             Debug.WriteLine("TEST: " + masksInMiddelHeel);
 
-            Sock sock = new Sock(cuffSizeInCentimeters);
+            //create a calculation for "roundsOfShaft"
+            Sock sock = new Sock(roundsOnCuff, 2.0, heelInCentimeter, roundsOfSole,toeInCentimeter);
 
             SockCalculated?.Invoke(this, new SockEventArgs(sock));
-        }
-
-       
-        public void PreviewPattern()
-        {
-
         }
     }
 }
