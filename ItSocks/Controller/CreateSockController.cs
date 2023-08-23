@@ -13,7 +13,6 @@ namespace ItSocks.Controller
     {
         public event EventHandler SockCalculated;
         CreateSock createSock = new CreateSock();
-        CreatePDF createPDF = new CreatePDF();
         public async void CreatePattern(int masks, int rows, int shoeSize, double cuffSizeInCentimeters)
         {
             double startingNumberOfMasks = await createSock.CastOnMasksCalculator(masks, shoeSize);
@@ -28,15 +27,7 @@ namespace ItSocks.Controller
 
             double masksInMiddelHeel = await createSock.MasksInMiddelHeel();
 
-           
-            Debug.WriteLine("Antal masker der skal slåes op " + startingNumberOfMasks);
-            Debug.WriteLine("Antal omgange der skal strikkes " + roundsOnCuff);
-            Debug.WriteLine("Hælen skal være " + heelInCentimeter + " cm.");
-            Debug.WriteLine("Tå i Centimeter: " + toeInCentimeter);
-            Debug.WriteLine("omgange sål i centimeter: " + roundsOfSole);
-            Debug.WriteLine("TEST: " + masksInMiddelHeel);
-
-            //create a calculation for "roundsOfShaft"
+            //create a calculation for "roundsOfShaft" to replace the static input 2.0
             Sock sock = new Sock(roundsOnCuff, 2.0, heelInCentimeter, roundsOfSole,toeInCentimeter);
 
             SockCalculated?.Invoke(this, new SockEventArgs(sock));

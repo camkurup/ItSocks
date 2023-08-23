@@ -42,14 +42,14 @@
                                 x:Name="Masks"
                                 Width="50"
                                 Height="18"
-                                Margin="5,0,0,0" LostFocus="Masks_LostFocus"/>
+                                Margin="5,0,0,0" TextChanged="Masks_TextChanged"/>
 
                             <Label>Pind:</Label>
                             <TextBox 
                                 x:Name="Rows"
                                 Width="50"
                                 Height="18"
-                                Margin="5,0,0,0"/>
+                                Margin="5,0,0,0" TextChanged="Rows_TextChanged"/>
                         </StackPanel>
                         
                     </StackPanel>
@@ -64,7 +64,7 @@
                             Width="150"
                             Height="70" 
                             d:ItemsSource="{d:SampleData ItemCount=5}" 
-                            VerticalAlignment="Top"/>
+                            VerticalAlignment="Top" SelectionChanged="ShoeSize_SelectionChanged"/>
                     </StackPanel>
                 </StackPanel>
             </Grid>
@@ -102,7 +102,7 @@
                     <TextBox 
                         Text="{Binding ElementName=slValueCuff, Path=Value, UpdateSourceTrigger=PropertyChanged}" 
                         Width="40"
-                        Height="20"/>
+                        Height="20" TextChanged="TextBox_TextChanged"/>
                 </StackPanel>
 
                 <StackPanel
@@ -127,7 +127,7 @@
                     <TextBox 
                         Text="{Binding ElementName=slValueShaft, Path=Value, UpdateSourceTrigger=PropertyChanged}" 
                         Width="40"
-                        Height="20"/>
+                        Height="20" TextChanged="TextBox_TextChanged_1"/>
                 </StackPanel>
 
                 <StackPanel

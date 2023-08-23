@@ -107,11 +107,25 @@ namespace ItSocks
             double cuffSizeInCentimeters = Convert.ToInt32(slValueCuff.Value);
 
             CreateSockController createSockController = new CreateSockController();
-            createSockController.CreatePattern(masks, rows, sizeOfShoe, cuffSizeInCentimeters);
-            
+            createSockController.CreatePattern(masks, rows, sizeOfShoe, cuffSizeInCentimeters);            
         }
 
-        private void Masks_LostFocus(object sender, RoutedEventArgs e)
+        //This section is for the "lost fokus"
+        //it has the purpose of listening on the UI
+        //if the user makes changes and if so, do the "SockCreated" methode
+        private async void SockCreated(object? sender, EventArgs e)
+        {
+            //My idea is that this should not have static text but it should refere to my "SockTemplate"
+            SockTemplate sockTemplate = new SockTemplate();
+            SockEventArgs sockEventArgs = (SockEventArgs)e;
+            lbl_Cuff.Content = await sockTemplate.CuffTemplate() + sockEventArgs.Sock.Cuff;
+            lbl_Shaft.Content = await sockTemplate.ShaftTemplate() + sockEventArgs.Sock.Shaft;
+            lbl_Heel.Content = await sockTemplate.HeelTemplate() + sockEventArgs.Sock.Heel;
+            lbl_Soel.Content = await sockTemplate.SoelTemplate() + sockEventArgs.Sock.Soel;
+            lbl_Toe.Content = await sockTemplate.ToeTemplate() + sockEventArgs.Sock.Toe;
+        }
+
+        private void InputChanged()
         {
             try
             {
@@ -127,7 +141,6 @@ namespace ItSocks
                         CreateSockController createSockController = new CreateSockController();
                         createSockController.SockCalculated += SockCreated;
                         createSockController.CreatePattern(masks, rows, sizeOfShoe, cuffSizeInCentimeters);
-
                     }
                 }
             }
@@ -137,14 +150,31 @@ namespace ItSocks
             }
         }
 
-        private void SockCreated(object? sender, EventArgs e)
+        //look into thius later: after the first calculation it does not ecexute on "Mask_TextChanged" but it does on "Rows_TextChanged"
+        //have not yet testet other than thoes two
+        private void Masks_TextChanged(object sender, TextChangedEventArgs e)
         {
-            SockEventArgs sockEventArgs = (SockEventArgs)e;
-            lbl_Cuff.Content = "Manchet:A  " + sockEventArgs.Sock.Cuff;
-            lbl_Shaft.Content = "Skaft: " + sockEventArgs.Sock.Shaft; 
-            lbl_Heel.Content = "Hæl: " + sockEventArgs.Sock.Heel; 
-            lbl_Soel.Content = "Sål: " + sockEventArgs.Sock.Soel;
-            lbl_Toe.Content = "Tå: " + sockEventArgs.Sock.Toe;
+            InputChanged();
+        }
+
+        private void Rows_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            InputChanged();
+        }
+
+        private void ShoeSize_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            InputChanged();
+        }
+
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            InputChanged();
+        }
+
+        private void TextBox_TextChanged_1(object sender, TextChangedEventArgs e)
+        {
+            InputChanged();
         }
     }
 }
