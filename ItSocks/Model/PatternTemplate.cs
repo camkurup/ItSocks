@@ -17,35 +17,35 @@ namespace ItSocks.Model
         public async Task<string> CuffTemplate(int masks, int shoeSize)
         {
             double startingNumberOfMasks = await SockCalculator.CastOnMasksCalculator(masks, shoeSize);
-            string patternText = "bla bla " + startingNumberOfMasks + " bla bla";
+            string patternText = "Hvis jeg var nået langt nok ville du kunne læse din opskrift her";
 
             return patternText;
         }
 
         public async Task<string> ShaftTemplate()
         {
-            string patternText = "Skaft: ";
+            string patternText = "Men den er desværre ikke færdig designet endnu";
 
             return patternText;
         }
 
         public async Task<string> HeelTemplate()
         {
-            string patternText = "Hæl: ";
+            string patternText = "Jeg har desuden fået øje på nogle små magler";
 
             return patternText;
         }
 
         public async Task<string> SoelTemplate()
         {
-            string patternText = "Sål: ";
+            string patternText = "Som jeg tænker at arbejde vidre på efterfølgende ";
 
             return patternText;
         }
 
         public async Task<string> ToeTemplate()
         {
-            string patternText = "Tå: ";
+            string patternText = "Tak for en god opgave, jeg har været glad for at arbejde med den. ";
 
             return patternText;
         }
