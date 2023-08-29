@@ -41,7 +41,7 @@ namespace ItSocks
         }
         public void ManchetIMG()
         {
-            for (int i = 0; i < 5; i++)
+            for (int i = 0; i < 8; i++)
             {
                 Image im = new Image();
                 im.Height = 50;
@@ -53,7 +53,7 @@ namespace ItSocks
 
         public void ShaftIMG()
         {
-            for (int i = 0; i < 5; i++)
+            for (int i = 0; i < 8; i++)
             {
                 Image im = new Image();
                 im.Height = 50;
@@ -105,20 +105,24 @@ namespace ItSocks
             int masks = Convert.ToInt32(Masks.Text);
             int rows = Convert.ToInt32(Rows.Text);
             double cuffSizeInCentimeters = Convert.ToInt32(slValueCuff.Value);
+            double lengthOShaft = Convert.ToInt32(slValueShaft.Value);
 
-            CreateSockController createSockController = new CreateSockController();
-            createSockController.CreatePattern(masks, rows, sizeOfShoe, cuffSizeInCentimeters);            
+            SockController createSockController = new SockController();
+            createSockController.CreatePattern(masks, rows, sizeOfShoe, cuffSizeInCentimeters, lengthOShaft);            
         }
 
-        //This section is for the "lost fokus"
-        //it has the purpose of listening on the UI
-        //if the user makes changes and if so, do the "SockCreated" methode
+        #region InputChanged
+
         private async void SockCreated(object? sender, EventArgs e)
         {
-            //My idea is that this should not have static text but it should refere to my "SockTemplate"
-            SockTemplate sockTemplate = new SockTemplate();
+            //My idea is that this should not have static text but it should refere to my "PatternTemplate"
+            PatternTemplate sockTemplate = new PatternTemplate();
             SockEventArgs sockEventArgs = (SockEventArgs)e;
-            lbl_Cuff.Content = await sockTemplate.CuffTemplate() + sockEventArgs.Sock.Cuff;
+
+            //the staic numbers below is calculated after the method as run i PatternTemplate.
+            //that will mean that it wil show the PatternTemplate methode first then right after the 2 from the static calculation.
+            //This aint good enough, but I have not prioritised this bug high enough to do something about it 
+            lbl_Cuff.Content = await sockTemplate.CuffTemplate(0, 0) + sockEventArgs.Sock.Cuff;
             lbl_Shaft.Content = await sockTemplate.ShaftTemplate() + sockEventArgs.Sock.Shaft;
             lbl_Heel.Content = await sockTemplate.HeelTemplate() + sockEventArgs.Sock.Heel;
             lbl_Soel.Content = await sockTemplate.SoelTemplate() + sockEventArgs.Sock.Soel;
@@ -135,12 +139,13 @@ namespace ItSocks
                     int masks = Convert.ToInt32(Masks.Text);
                     int rows = Convert.ToInt32(Rows.Text);
                     double cuffSizeInCentimeters = Convert.ToInt32(slValueCuff.Value);
+                    double lengthOShaft = Convert.ToInt32(slValueShaft.Value);
 
                     if (sizeOfShoe > 0 && masks > 0 && rows > 0)
                     {
-                        CreateSockController createSockController = new CreateSockController();
+                        SockController createSockController = new SockController();
                         createSockController.SockCalculated += SockCreated;
-                        createSockController.CreatePattern(masks, rows, sizeOfShoe, cuffSizeInCentimeters);
+                        createSockController.CreatePattern(masks, rows, sizeOfShoe, cuffSizeInCentimeters, lengthOShaft);
                     }
                 }
             }
@@ -176,5 +181,7 @@ namespace ItSocks
         {
             InputChanged();
         }
+
+        #endregion
     }
 }

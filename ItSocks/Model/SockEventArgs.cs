@@ -9,6 +9,8 @@ namespace ItSocks.Model
 {
     public class SockEventArgs : EventArgs
     {
+        // responsible for returning that an event have happend
+
         public Sock Sock { get; set; }
 
         public SockEventArgs(Sock sock) 
