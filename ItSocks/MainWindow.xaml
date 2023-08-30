@@ -8,31 +8,40 @@
         Title="MainWindow" Height="450" Width="800">
 
     <Window.Resources>
-        <!-- Green Button Style -->
-        <Style x:Key="FontFamilyStyle" TargetType="Label" >
+        <!-- Label styling -->
+        <Style x:Key="LabelStyle" TargetType="Label" >
             <Setter Property="FontFamily" Value="Comic Sans MS"/>
             <Setter Property="FontSize" Value="14"/>
             <Setter Property="FontWeight" Value="Normal"/>
             <Setter Property="Foreground" Value="White"/>
-            <Setter Property="Background" Value="#FF717B71"/>
         </Style>
-        <Style x:Key="ShoeSizeStyle" TargetType="Label" >
+        <!-- ListBox styling -->
+        <Style x:Key="ListBoxStyle" TargetType="ListBox" >
             <Setter Property="FontFamily" Value="Comic Sans MS"/>
             <Setter Property="FontSize" Value="14"/>
             <Setter Property="FontWeight" Value="Normal"/>
             <Setter Property="Foreground" Value="White"/>
-            <Setter Property="Background" Value="#FF717B71"/>
+            <Setter Property="Background" Value="#FF8E9A8E"/>
+        </Style>
+        <!-- Button styling -->
+        <Style x:Key="ButtonStyle" TargetType="Button" >
+            <Setter Property="FontFamily" Value="Comic Sans MS"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="FontWeight" Value="Normal"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Background" Value="#FF8E9A8E"/>
         </Style>
     </Window.Resources>
     <Grid
-        Background="#FFC3CEC3">
+        Background="#FF6D7B6D">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         
         <Grid
-            Grid.Column="0">
+            Grid.Column="0"
+            Background="#FF6D7B6D">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="*"/>
@@ -48,33 +57,35 @@
                 <StackPanel
                     Grid.Row="0"
                     Orientation="Horizontal"
-                    Background="#FF717B71"
                     Margin="10">
                     <StackPanel>
                         <Label 
-                            Style="{StaticResource FontFamilyStyle}"
+                            Style="{StaticResource LabelStyle}"
+                            FontSize="20"
                             Content="Strikkefasthed: "/>
 
                         <StackPanel Orientation="Horizontal">
                             <Label 
-                                Style="{StaticResource FontFamilyStyle}"
+                                Style="{StaticResource LabelStyle}"
                                 Content="Maske: "/>
 
                             <TextBox 
                                 x:Name="Masks"
                                 Width="50"
                                 Height="18"
-                                Margin="5,0,0,0" TextChanged="Masks_TextChanged"/>
+                                Margin="5,0,0,0" 
+                                TextChanged="Masks_TextChanged"/>
 
                             <Label 
-                                Style="{StaticResource FontFamilyStyle}"
+                                Style="{StaticResource LabelStyle}"
                                 Content="Pind: "/>
                             
                             <TextBox 
                                 x:Name="Rows"
                                 Width="50"
                                 Height="18"
-                                Margin="5,0,0,0" TextChanged="Rows_TextChanged"/>
+                                Margin="5,0,0,0" 
+                                TextChanged="Rows_TextChanged"/>
                         </StackPanel>
                         
                     
@@ -86,11 +97,12 @@
                     Margin="10">
 
                     <Label
-                        Style="{StaticResource ShoeSizeStyle}"
+                        Style="{StaticResource LabelStyle}"
                         Content="Sko størrelse:"/>
 
                     <ListBox 
                         x:Name="ShoeSize"
+                        Style="{StaticResource ListBoxStyle}"
                         Width="150"
                         Height="70" 
                         d:ItemsSource="{d:SampleData ItemCount=5}" 
@@ -113,11 +125,14 @@
                     x:Name="Manchet"
                     Margin="10"
                     Orientation="Horizontal">
-                    <Label Width="75">Manchet:</Label>
+                    <Label 
+                        Style="{StaticResource LabelStyle}"
+                        Width="75">Manchet:</Label>
 
                     <StackPanel 
                         VerticalAlignment="Center">
                         <Label
+                            Style="{StaticResource LabelStyle}"
                             Width="75">Rib i cm.:</Label>
 
                         <Slider
@@ -139,12 +154,17 @@
                     x:Name="Shaft"
                     Margin="10"
                     Orientation="Horizontal">
-                    <Label Width="75">Skaft:</Label>
+                    <Label 
+                        Style="{StaticResource LabelStyle}"
+                        Width="75"
+                        Content="Skaft:"/>
 
                     <StackPanel 
                         VerticalAlignment="Center">
                         
-                        <Label Width="75">Skaft i cm.:</Label>
+                        <Label 
+                            Style="{StaticResource LabelStyle}"
+                            Width="75">Skaft i cm.:</Label>
 
                         <Slider 
                             Name="slValueShaft"
@@ -165,7 +185,10 @@
                     x:Name="Heel"
                     Margin="10"
                     Orientation="Horizontal">
-                    <Label Width="75">Hæl:</Label>
+                    <Label 
+                        Style="{StaticResource LabelStyle}"
+                        Width="75"
+                        Content="Hæl:"/>
                 </StackPanel>
 
                 <StackPanel
@@ -173,7 +196,12 @@
                     x:Name="Soel"
                     Margin="10"
                     Orientation="Horizontal">
-                    <Label Width="75">Sål:</Label>
+                    
+                    <Label 
+                        Style="{StaticResource LabelStyle}"
+                        Width="75"
+                        Content="Sål:"/>
+                    
                 </StackPanel>
 
                 <StackPanel
@@ -181,28 +209,59 @@
                     x:Name="Toe"
                     Margin="10"
                     Orientation="Horizontal">
-                    <Label Width="75">Tå:</Label>
+                    <Label 
+                        Style="{StaticResource LabelStyle}"
+                        Width="75"
+                        Content="Tå:"/>
                 </StackPanel>
             </Grid>
         </Grid>
 
-        <Grid
-            x:Name="J"
-            Grid.Column="1"
-            Margin="20">
-            <StackPanel>
-                <Label>Sokke Design</Label>
+        <Grid 
+            Background="#FFC3CEC3"
+            Grid.Column="1">
+            <StackPanel
+                Margin="20">
+                <Label
+                    Style="{StaticResource LabelStyle}"
+                    Foreground="#FF8E9A8E"
+                    HorizontalAlignment="Center"
+                    Content="Sokkedesign"/>
 
-                <Label x:Name="lbl_Cuff" Content="Manchet: "/>
-                <Label x:Name="lbl_Shaft" Content="Skaft: "/>
-                <Label x:Name="lbl_Heel" Content="Hæl: "/>
-                <Label x:Name="lbl_Soel" Content="Sål: "/>
-                <Label x:Name="lbl_Toe" Content="Tå: "/>
+                <Label 
+                    x:Name="lbl_Cuff" 
+                    Style="{StaticResource LabelStyle}"
+                    Foreground="#FF8E9A8E"
+                    Content="Manchet: "/>
+                <Label 
+                    x:Name="lbl_Shaft" 
+                    Style="{StaticResource LabelStyle}"
+                    Foreground="#FF8E9A8E"
+                    Content="Skaft: "/>
+                <Label 
+                    x:Name="lbl_Heel" 
+                    Style="{StaticResource LabelStyle}"
+                    Foreground="#FF8E9A8E"
+                    Content="Hæl: "/>
+                <Label 
+                    x:Name="lbl_Soel" 
+                    Style="{StaticResource LabelStyle}"
+                    Foreground="#FF8E9A8E"
+                    Content="Sål: "/>
+                <Label 
+                    x:Name="lbl_Toe" 
+                    Style="{StaticResource LabelStyle}"
+                    Foreground="#FF8E9A8E"
+                    Content="Tå: "/>
 
                 <Button 
                     x:Name="Calculat" 
+                    Style="{StaticResource ButtonStyle}"
+                    
                     Click="Calculat_Click"
-                    VerticalAlignment="Bottom">
+                    VerticalAlignment="Bottom"
+                    Width="100"
+                    Margin="10">
                     Gem som PDF
                 </Button>
 
