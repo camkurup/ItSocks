@@ -31,13 +31,14 @@ namespace ItSocks
             shoeSize.Add(46);
 
             ShoeSize.ItemsSource = shoeSize;
-
-            ManchetIMG();
-            ShaftIMG();
-            HeelMG();
-            SoelIMG();
-            ToeIMG();
-
+            
+            //This shows imgages on every moduel.
+            //But it aint in use yet and therefor I desided that I will keep it off until it's needed
+            //ManchetIMG();
+            //ShaftIMG();
+            //HeelMG();
+            //SoelIMG();
+            //ToeIMG();
         }
 
         public void ManchetIMG()

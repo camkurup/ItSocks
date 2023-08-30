@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ItSocks"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="Auto" Width="Auto">
 
     <Window.Resources>
         <!-- Label styling -->
@@ -62,7 +62,7 @@
                         <Label 
                             Style="{StaticResource LabelStyle}"
                             FontSize="20"
-                            Content="Strikkefasthed: "/>
+                            Content="Strikkefasthed"/>
 
                         <StackPanel Orientation="Horizontal">
                             <Label 
@@ -87,9 +87,15 @@
                                 Margin="5,0,0,0" 
                                 TextChanged="Rows_TextChanged"/>
                         </StackPanel>
+
+                        <Label
+                            Margin="0"
+                            Content="Strikkefastheeden er det antal af masker og pinde "/>
+                        <Label
+                            Margin="0"
+                            Content="der går på en strikke prøve der er 10 x 10 cm."/>
                         
-                    
-                </StackPanel>
+                    </StackPanel>
                 </StackPanel>
                 <StackPanel
                     Grid.Row="1"
@@ -226,32 +232,38 @@
                     Style="{StaticResource LabelStyle}"
                     Foreground="#FF8E9A8E"
                     HorizontalAlignment="Center"
+                    FontSize="20"
                     Content="Sokkedesign"/>
 
                 <Label 
                     x:Name="lbl_Cuff" 
                     Style="{StaticResource LabelStyle}"
                     Foreground="#FF8E9A8E"
+                    Margin="10"
                     Content="Manchet: "/>
                 <Label 
                     x:Name="lbl_Shaft" 
                     Style="{StaticResource LabelStyle}"
                     Foreground="#FF8E9A8E"
+                    Margin="10"
                     Content="Skaft: "/>
                 <Label 
                     x:Name="lbl_Heel" 
                     Style="{StaticResource LabelStyle}"
                     Foreground="#FF8E9A8E"
+                    Margin="10"
                     Content="Hæl: "/>
                 <Label 
                     x:Name="lbl_Soel" 
                     Style="{StaticResource LabelStyle}"
                     Foreground="#FF8E9A8E"
+                    Margin="10"
                     Content="Sål: "/>
                 <Label 
                     x:Name="lbl_Toe" 
                     Style="{StaticResource LabelStyle}"
                     Foreground="#FF8E9A8E"
+                    Margin="10"
                     Content="Tå: "/>
 
                 <Button 
