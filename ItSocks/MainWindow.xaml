@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ItSocks"
         mc:Ignorable="d"
-        Title="MainWindow" Height="Auto" Width="Auto">
+        Title="MainWindow" Height="800" Width="1500">
 
     <Window.Resources>
         <!-- Label styling -->
@@ -73,7 +73,7 @@
                                 x:Name="Masks"
                                 Width="50"
                                 Height="18"
-                                Margin="5,0,0,0" 
+                                Margin="5,0,30,0" 
                                 TextChanged="Masks_TextChanged"/>
 
                             <Label 
@@ -104,13 +104,14 @@
 
                     <Label
                         Style="{StaticResource LabelStyle}"
-                        Content="Sko størrelse:"/>
+                        Content="Skostørrelse:"/>
 
                     <ListBox 
                         x:Name="ShoeSize"
                         Style="{StaticResource ListBoxStyle}"
                         Width="150"
                         Height="70" 
+                        Margin="30,0,0,0" 
                         d:ItemsSource="{d:SampleData ItemCount=5}" 
                         VerticalAlignment="Top" SelectionChanged="ShoeSize_SelectionChanged"/>
                 </StackPanel>
@@ -131,22 +132,26 @@
                     x:Name="Manchet"
                     Margin="10"
                     Orientation="Horizontal">
-                    <Label 
-                        Style="{StaticResource LabelStyle}"
-                        Width="75">Manchet:</Label>
-
-                    <StackPanel 
-                        VerticalAlignment="Center">
-                        <Label
+                    <StackPanel>
+                        <Label 
                             Style="{StaticResource LabelStyle}"
-                            Width="75">Rib i cm.:</Label>
+                            Width="75"
+                            Content="Manchet: "/>
 
-                        <Slider
-                            Name="slValueCuff" 
-                            Minimum="2.5" 
-                            Maximum="10" 
-                            TickFrequency="0.5" 
-                            IsSnapToTickEnabled="True"/>
+                        <StackPanel 
+                            VerticalAlignment="Center">
+                            <Label
+                                Style="{StaticResource LabelStyle}"
+                                Width="75"
+                                Content="Rib cm:"/>
+
+                            <Slider
+                                Name="slValueCuff" 
+                                Minimum="2.5" 
+                                Maximum="10" 
+                                TickFrequency="0.5"
+                                IsSnapToTickEnabled="True"/>
+                        </StackPanel>
                     </StackPanel>
                     
                     <TextBox 
@@ -160,24 +165,28 @@
                     x:Name="Shaft"
                     Margin="10"
                     Orientation="Horizontal">
-                    <Label 
-                        Style="{StaticResource LabelStyle}"
-                        Width="75"
-                        Content="Skaft:"/>
-
-                    <StackPanel 
-                        VerticalAlignment="Center">
-                        
+                    <StackPanel>
                         <Label 
                             Style="{StaticResource LabelStyle}"
-                            Width="75">Skaft i cm.:</Label>
+                            Width="75"
+                            Content="Skaft:"/>
 
-                        <Slider 
-                            Name="slValueShaft"
-                            Minimum="1.5" 
-                            Maximum="50" 
-                            TickFrequency="0.5" 
-                            IsSnapToTickEnabled="True"/>
+                        <StackPanel 
+                            VerticalAlignment="Center">
+
+                            <Label 
+                                Style="{StaticResource LabelStyle}"
+                                Width="75"
+                                Content="Skaft cm:"/>
+
+                            <Slider 
+                                Name="slValueShaft"
+                                Minimum="1.5" 
+                                Maximum="50" 
+                                TickFrequency="0.5" 
+                                IsSnapToTickEnabled="True"/>
+                        </StackPanel>
+                    
                     </StackPanel>
                     
                     <TextBox 
