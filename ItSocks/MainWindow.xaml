@@ -31,6 +31,7 @@
             <Setter Property="Foreground" Value="White"/>
             <Setter Property="Background" Value="#FF8E9A8E"/>
         </Style>
+      
     </Window.Resources>
     <Grid
         Background="#FF6D7B6D">
@@ -68,31 +69,53 @@
                             <Label 
                                 Style="{StaticResource LabelStyle}"
                                 Content="Maske: "/>
-
-                            <TextBox 
-                                x:Name="Masks"
-                                Width="50"
-                                Height="18"
-                                Margin="5,0,30,0" 
-                                TextChanged="Masks_TextChanged"/>
+                            
+                            <Border 
+                                CornerRadius="6" 
+                                BorderBrush="White" 
+                                BorderThickness="1"
+                                Margin="10">
+                                <TextBox 
+                                    x:Name="Masks"
+                                    Width="80"
+                                    TextChanged="Masks_TextChanged"
+                                    VerticalAlignment="Center" 
+                                    HorizontalAlignment="Center" 
+                                    Padding="10"
+                                    Background="Transparent" 
+                                    Foreground="White"
+                                    BorderThickness="0"/>
+                                
+                            </Border>
 
                             <Label 
                                 Style="{StaticResource LabelStyle}"
                                 Content="Pind: "/>
+
+                            <Border 
+                                CornerRadius="6" 
+                                BorderBrush="White" 
+                                BorderThickness="1"
+                                Margin="10">
+                                <TextBox 
+                                    x:Name="Rows"
+                                    Width="80"
+                                    TextChanged="Rows_TextChanged"
+                                    VerticalAlignment="Center" 
+                                    HorizontalAlignment="Center" 
+                                    Padding="10"
+                                    Background="Transparent" 
+                                    Foreground="White"
+                                    BorderThickness="0"/>
+                            </Border>
                             
-                            <TextBox 
-                                x:Name="Rows"
-                                Width="50"
-                                Height="18"
-                                Margin="5,0,0,0" 
-                                TextChanged="Rows_TextChanged"/>
                         </StackPanel>
 
                         <Label
-                            Margin="0"
-                            Content="Strikkefastheeden er det antal af masker og pinde "/>
+                            Foreground="#FF8E9A8E"
+                            Content="Strikkefastheden er det antal af masker og pinde "/>
                         <Label
-                            Margin="0"
+                            Foreground="#FF8E9A8E"
                             Content="der går på en strikke prøve der er 10 x 10 cm."/>
                         
                     </StackPanel>
@@ -100,20 +123,25 @@
                 <StackPanel
                     Grid.Row="1"
                     Orientation="Horizontal"
-                    Margin="10">
+                    Margin="10,50,0,0">
 
                     <Label
                         Style="{StaticResource LabelStyle}"
                         Content="Skostørrelse:"/>
 
-                    <ListBox 
-                        x:Name="ShoeSize"
-                        Style="{StaticResource ListBoxStyle}"
-                        Width="150"
-                        Height="70" 
-                        Margin="30,0,0,0" 
-                        d:ItemsSource="{d:SampleData ItemCount=5}" 
-                        VerticalAlignment="Top" SelectionChanged="ShoeSize_SelectionChanged"/>
+                    <Border
+                        CornerRadius="6" 
+                        BorderBrush="White" 
+                        BorderThickness="1"
+                        Margin="10">            
+                        <ListBox 
+                            x:Name="ShoeSize"
+                            Width="150"
+                            Height="70" 
+                            Style="{StaticResource ListBoxStyle}"
+                            d:ItemsSource="{d:SampleData ItemCount=5}" 
+                            VerticalAlignment="Top" SelectionChanged="ShoeSize_SelectionChanged"/>
+                    </Border>
                 </StackPanel>
             </Grid>
 
@@ -276,14 +304,17 @@
                     Content="Tå: "/>
 
                 <Button 
-                    x:Name="Calculat" 
+                    x:Name="Calculat"
                     Style="{StaticResource ButtonStyle}"
-                    
-                    Click="Calculat_Click"
-                    VerticalAlignment="Bottom"
-                    Width="100"
-                    Margin="10">
-                    Gem som PDF
+                    Width="100" Height="40"
+                    Content="Gem som PDF">
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border CornerRadius="10" Background="{TemplateBinding Background}">
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
                 </Button>
 
             </StackPanel>
