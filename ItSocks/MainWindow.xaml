@@ -47,19 +47,22 @@
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-            <Grid
-                Grid.Row="0">
-
+            
+            <Grid Grid.Row="0">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
                 
+                
                 <StackPanel
                     Grid.Row="0"
                     Orientation="Horizontal"
                     Margin="10">
-                    <StackPanel>
+                    
+                    <StackPanel
+                        Margin="0,0,60,0">
+                        
                         <Label 
                             Style="{StaticResource LabelStyle}"
                             FontSize="20"
@@ -71,9 +74,9 @@
                                 Content="Maske: "/>
                             
                             <Border 
-                                CornerRadius="6" 
+                                CornerRadius="10" 
                                 BorderBrush="White" 
-                                BorderThickness="1"
+                                BorderThickness="2"
                                 Margin="10">
                                 <TextBox 
                                     x:Name="Masks"
@@ -81,8 +84,8 @@
                                     TextChanged="Masks_TextChanged"
                                     VerticalAlignment="Center" 
                                     HorizontalAlignment="Center" 
-                                    Padding="10"
-                                    Background="Transparent" 
+                                    Padding="8"
+                                    Background="#FF8E9A8E" 
                                     Foreground="White"
                                     BorderThickness="0"/>
                                 
@@ -93,9 +96,9 @@
                                 Content="Pind: "/>
 
                             <Border 
-                                CornerRadius="6" 
+                                CornerRadius="10" 
                                 BorderBrush="White" 
-                                BorderThickness="1"
+                                BorderThickness="2"
                                 Margin="10">
                                 <TextBox 
                                     x:Name="Rows"
@@ -103,8 +106,8 @@
                                     TextChanged="Rows_TextChanged"
                                     VerticalAlignment="Center" 
                                     HorizontalAlignment="Center" 
-                                    Padding="10"
-                                    Background="Transparent" 
+                                    Padding="8"
+                                    Background="#FF8E9A8E" 
                                     Foreground="White"
                                     BorderThickness="0"/>
                             </Border>
@@ -119,20 +122,19 @@
                             Content="der går på en strikke prøve der er 10 x 10 cm."/>
                         
                     </StackPanel>
-                </StackPanel>
+                
                 <StackPanel
                     Grid.Row="1"
-                    Orientation="Horizontal"
-                    Margin="10,50,0,0">
+                    Orientation="Vertical">
 
                     <Label
                         Style="{StaticResource LabelStyle}"
                         Content="Skostørrelse:"/>
 
                     <Border
-                        CornerRadius="6" 
+                        CornerRadius="10" 
                         BorderBrush="White" 
-                        BorderThickness="1"
+                        BorderThickness="02"
                         Margin="10">            
                         <ListBox 
                             x:Name="ShoeSize"
@@ -142,6 +144,7 @@
                             d:ItemsSource="{d:SampleData ItemCount=5}" 
                             VerticalAlignment="Top" SelectionChanged="ShoeSize_SelectionChanged"/>
                     </Border>
+                </StackPanel>
                 </StackPanel>
             </Grid>
 
@@ -258,6 +261,7 @@
                         Content="Tå:"/>
                 </StackPanel>
             </Grid>
+            
         </Grid>
 
         <Grid 
