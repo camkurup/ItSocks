@@ -14,7 +14,7 @@ namespace ItSocks.Model
     /// </summary>
     public class PatternTemplate
     {
-        public SockCalculator SockCalculator = new SockCalculator();
+        private SockCalculator SockCalculator = new SockCalculator();
 
         public async Task<string> CuffTemplate(int masks, int shoeSize)
         {

@@ -17,7 +17,7 @@ namespace ItSocks.Controller
 
         public event EventHandler SockCalculated;
 
-        SockCalculator createSock = new SockCalculator();
+        private SockCalculator createSock = new SockCalculator();
 
         
         public async void CreatePattern(int masks, int rows, int shoeSize, double cuffSizeInCentimeters, double lengthOShaft)
