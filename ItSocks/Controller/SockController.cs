@@ -40,10 +40,5 @@ namespace ItSocks.Controller
 
             SockCalculated?.Invoke(this, new SockEventArgs(sock));
         }
-
-        public async void SockCreated(Sock sock)
-        {
-
-        }
     }
 }
