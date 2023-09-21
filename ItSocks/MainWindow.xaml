@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ItSocks"
         mc:Ignorable="d"
-        Title="MainWindow" Height="800" Width="1500">
+        Title="It Socks" Height="800" Width="1500"
+        Icon="C:\Users\CKU\Documents\Skole\H5\Prøve-Svendeprøve\Afleveringsmappe\ItSocks\ItSocks\ItSocks\Img\263806.png">
 
     <Window.Resources>
         <!-- Label styling -->
@@ -13,53 +14,69 @@
             <Setter Property="FontFamily" Value="Comic Sans MS"/>
             <Setter Property="FontSize" Value="14"/>
             <Setter Property="FontWeight" Value="Normal"/>
-            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Foreground" Value="#6e493e"/>
         </Style>
-        <!-- ListBox styling -->
+        <!-- TextBox Style-->
+        <Style x:Key="TextBoxStyle" TargetType="TextBox" >
+            <Setter Property="FontFamily" Value="Comic Sans MS"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="Padding" Value="8"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Foreground" Value="#6e493e"/>
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="Width" Value="80"/>
+        </Style>
+        <!-- Border style -->
+        <Style x:Key="BorderStyle" TargetType="Border">
+            <Setter Property="CornerRadius" Value="10"/>
+            <Setter Property="BorderBrush" Value="White"/>
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="Margin" Value="10"/>
+        </Style>
+            <!-- ListBox styling -->
         <Style x:Key="ListBoxStyle" TargetType="ListBox" >
             <Setter Property="FontFamily" Value="Comic Sans MS"/>
             <Setter Property="FontSize" Value="14"/>
             <Setter Property="FontWeight" Value="Normal"/>
-            <Setter Property="Foreground" Value="White"/>
-            <Setter Property="Background" Value="#FF8E9A8E"/>
+            <Setter Property="Foreground" Value="#6e493e"/>
+            <Setter Property="Background" Value="#faf7f4ff"/>
         </Style>
         <!-- Button styling -->
         <Style x:Key="ButtonStyle" TargetType="Button" >
             <Setter Property="FontFamily" Value="Comic Sans MS"/>
-            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="FontSize" Value="20"/>
             <Setter Property="FontWeight" Value="Normal"/>
-            <Setter Property="Foreground" Value="White"/>
-            <Setter Property="Background" Value="#FF8E9A8E"/>
+            <Setter Property="Foreground" Value="#6e493e"/>
         </Style>
       
     </Window.Resources>
     <Grid
-        Background="#FF6D7B6D">
+        Background="#faf7f4ff">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         
         <Grid
-            Grid.Column="0"
-            Background="#FF6D7B6D">
+            Grid.Column="0">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-            <Grid
-                Grid.Row="0">
-
+            
+            <Grid Grid.Row="0">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
-                
+                              
                 <StackPanel
                     Grid.Row="0"
                     Orientation="Horizontal"
-                    Margin="10">
-                    <StackPanel>
+                    Margin="10">                    
+                    <StackPanel Margin="0,0,60,0">                        
                         <Label 
                             Style="{StaticResource LabelStyle}"
                             FontSize="20"
@@ -68,80 +85,54 @@
                         <StackPanel Orientation="Horizontal">
                             <Label 
                                 Style="{StaticResource LabelStyle}"
-                                Content="Maske: "/>
-                            
-                            <Border 
-                                CornerRadius="6" 
-                                BorderBrush="White" 
-                                BorderThickness="1"
-                                Margin="10">
+                                Content="Antal Maske: "/>                            
+                            <Border Style="{StaticResource BorderStyle}">
                                 <TextBox 
                                     x:Name="Masks"
-                                    Width="80"
-                                    TextChanged="Masks_TextChanged"
-                                    VerticalAlignment="Center" 
-                                    HorizontalAlignment="Center" 
-                                    Padding="10"
-                                    Background="Transparent" 
-                                    Foreground="White"
-                                    BorderThickness="0"/>
-                                
+                                    Style="{StaticResource TextBoxStyle}"
+                                    TextChanged="Masks_TextChanged"/>                                
                             </Border>
 
                             <Label 
                                 Style="{StaticResource LabelStyle}"
-                                Content="Pind: "/>
-
-                            <Border 
-                                CornerRadius="6" 
-                                BorderBrush="White" 
-                                BorderThickness="1"
-                                Margin="10">
+                                Content="Antal Pind: "/>
+                            
+                            <Border Style="{StaticResource BorderStyle}">
                                 <TextBox 
                                     x:Name="Rows"
-                                    Width="80"
-                                    TextChanged="Rows_TextChanged"
-                                    VerticalAlignment="Center" 
-                                    HorizontalAlignment="Center" 
-                                    Padding="10"
-                                    Background="Transparent" 
-                                    Foreground="White"
-                                    BorderThickness="0"/>
-                            </Border>
-                            
+                                    Style="{StaticResource TextBoxStyle}"
+                                    TextChanged="Rows_TextChanged"/>
+                            </Border>                            
                         </StackPanel>
 
                         <Label
-                            Foreground="#FF8E9A8E"
+                            Style="{StaticResource LabelStyle}"
                             Content="Strikkefastheden er det antal af masker og pinde "/>
                         <Label
-                            Foreground="#FF8E9A8E"
-                            Content="der går på en strikke prøve der er 10 x 10 cm."/>
-                        
+                            Style="{StaticResource LabelStyle}"
+                            Content="der går på en strikke prøve der er 10 x 10 cm."/>                        
                     </StackPanel>
-                </StackPanel>
+                
                 <StackPanel
                     Grid.Row="1"
-                    Orientation="Horizontal"
-                    Margin="10,50,0,0">
+                    Orientation="Vertical">
 
                     <Label
                         Style="{StaticResource LabelStyle}"
                         Content="Skostørrelse:"/>
 
-                    <Border
-                        CornerRadius="6" 
-                        BorderBrush="White" 
-                        BorderThickness="1"
-                        Margin="10">            
-                        <ListBox 
-                            x:Name="ShoeSize"
-                            Width="150"
-                            Height="70" 
-                            Style="{StaticResource ListBoxStyle}"
-                            d:ItemsSource="{d:SampleData ItemCount=5}" 
-                            VerticalAlignment="Top" SelectionChanged="ShoeSize_SelectionChanged"/>
-                    </Border>
+                        <Border Style="{StaticResource BorderStyle}">            
+                            <ListBox 
+                                x:Name="ShoeSize"
+                                Width="150"
+                                Height="70" 
+                                Style="{StaticResource ListBoxStyle}"
+                                d:ItemsSource="{d:SampleData ItemCount=5}" 
+                                Background="White"
+                                BorderThickness="0"
+                                VerticalAlignment="Top" SelectionChanged="ShoeSize_SelectionChanged"/>
+                        </Border>
+                </StackPanel>
                 </StackPanel>
             </Grid>
 
@@ -160,32 +151,32 @@
                     x:Name="Manchet"
                     Margin="10"
                     Orientation="Horizontal">
-                    <StackPanel>
-                        <Label 
+
+                    <StackPanel 
+                        VerticalAlignment="Center">
+                        <Label
                             Style="{StaticResource LabelStyle}"
                             Width="75"
-                            Content="Manchet: "/>
+                            Content="Rib cm:"/>
 
-                        <StackPanel 
-                            VerticalAlignment="Center">
-                            <Label
-                                Style="{StaticResource LabelStyle}"
-                                Width="75"
-                                Content="Rib cm:"/>
-
-                            <Slider
-                                Name="slValueCuff" 
-                                Minimum="2.5" 
-                                Maximum="10" 
-                                TickFrequency="0.5"
-                                IsSnapToTickEnabled="True"/>
-                        </StackPanel>
-                    </StackPanel>
+                        <Slider
+                            Name="slValueCuff" 
+                            Minimum="2.5" 
+                            Maximum="10" 
+                            TickFrequency="0.5"
+                            IsSnapToTickEnabled="True"/>
                     
-                    <TextBox 
+                    </StackPanel>
+                    <Border Style="{StaticResource BorderStyle}"
+                        Width="80"
+                        Height="40">
+                        <TextBox
+                        Name="ValueCuff"
+                        Style="{StaticResource TextBoxStyle}"
                         Text="{Binding ElementName=slValueCuff, Path=Value, UpdateSourceTrigger=PropertyChanged}" 
-                        Width="40"
-                        Height="20" TextChanged="TextBox_TextChanged"/>
+                        TextChanged="TextBox_TextChanged"/>
+                        </Border>
+
                 </StackPanel>
 
                 <StackPanel
@@ -193,81 +184,45 @@
                     x:Name="Shaft"
                     Margin="10"
                     Orientation="Horizontal">
-                    <StackPanel>
+
+                    <StackPanel 
+                            VerticalAlignment="Center">
                         <Label 
                             Style="{StaticResource LabelStyle}"
                             Width="75"
-                            Content="Skaft:"/>
+                            Content="Skaft cm:"/>
 
-                        <StackPanel 
-                            VerticalAlignment="Center">
-
-                            <Label 
-                                Style="{StaticResource LabelStyle}"
-                                Width="75"
-                                Content="Skaft cm:"/>
-
-                            <Slider 
-                                Name="slValueShaft"
-                                Minimum="1.5" 
-                                Maximum="50" 
-                                TickFrequency="0.5" 
-                                IsSnapToTickEnabled="True"/>
-                        </StackPanel>
+                        <Slider 
+                            Name="slValueShaft"
+                            Minimum="1.5" 
+                            Maximum="50" 
+                            TickFrequency="0.5" 
+                            IsSnapToTickEnabled="True"/>
                     
                     </StackPanel>
-                    
-                    <TextBox 
-                        Text="{Binding ElementName=slValueShaft, Path=Value, UpdateSourceTrigger=PropertyChanged}" 
-                        Width="40"
-                        Height="20" TextChanged="TextBox_TextChanged_1"/>
+                    <Border Style="{StaticResource BorderStyle}"
+                        Width="80"
+                        Height="40">
+                        <TextBox 
+                            Style="{StaticResource TextBoxStyle}"
+                            Text="{Binding ElementName=slValueShaft, Path=Value, UpdateSourceTrigger=PropertyChanged}" 
+                            TextChanged="TextBox_TextChanged_1"/>
+                    </Border>
                 </StackPanel>
 
-                <StackPanel
-                    Grid.Row="2"
-                    x:Name="Heel"
-                    Margin="10"
-                    Orientation="Horizontal">
-                    <Label 
-                        Style="{StaticResource LabelStyle}"
-                        Width="75"
-                        Content="Hæl:"/>
-                </StackPanel>
-
-                <StackPanel
-                    Grid.Row="3"
-                    x:Name="Soel"
-                    Margin="10"
-                    Orientation="Horizontal">
-                    
-                    <Label 
-                        Style="{StaticResource LabelStyle}"
-                        Width="75"
-                        Content="Sål:"/>
-                    
-                </StackPanel>
-
-                <StackPanel
-                    Grid.Row="4"
-                    x:Name="Toe"
-                    Margin="10"
-                    Orientation="Horizontal">
-                    <Label 
-                        Style="{StaticResource LabelStyle}"
-                        Width="75"
-                        Content="Tå:"/>
-                </StackPanel>
+                
             </Grid>
+            
         </Grid>
 
         <Grid 
-            Background="#FFC3CEC3"
+            Background="White"
             Grid.Column="1">
             <StackPanel
                 Margin="20">
                 <Label
                     Style="{StaticResource LabelStyle}"
-                    Foreground="#FF8E9A8E"
+                    Foreground="#6e493e"
                     HorizontalAlignment="Center"
                     FontSize="20"
                     Content="Sokkedesign"/>
@@ -275,42 +230,39 @@
                 <Label 
                     x:Name="lbl_Cuff" 
                     Style="{StaticResource LabelStyle}"
-                    Foreground="#FF8E9A8E"
                     Margin="10"
                     Content="Manchet: "/>
                 <Label 
                     x:Name="lbl_Shaft" 
                     Style="{StaticResource LabelStyle}"
-                    Foreground="#FF8E9A8E"
                     Margin="10"
                     Content="Skaft: "/>
                 <Label 
                     x:Name="lbl_Heel" 
                     Style="{StaticResource LabelStyle}"
-                    Foreground="#FF8E9A8E"
                     Margin="10"
                     Content="Hæl: "/>
                 <Label 
                     x:Name="lbl_Soel" 
                     Style="{StaticResource LabelStyle}"
-                    Foreground="#FF8E9A8E"
                     Margin="10"
                     Content="Sål: "/>
                 <Label 
                     x:Name="lbl_Toe" 
                     Style="{StaticResource LabelStyle}"
-                    Foreground="#FF8E9A8E"
                     Margin="10"
                     Content="Tå: "/>
 
                 <Button 
                     x:Name="Calculat"
                     Style="{StaticResource ButtonStyle}"
-                    Width="100" Height="40"
                     Content="Gem som PDF">
                     <Button.Template>
                         <ControlTemplate TargetType="Button">
-                            <Border CornerRadius="10" Background="{TemplateBinding Background}">
+                            <Border Style="{StaticResource BorderStyle}"
+                                    Background="#faf7f4ff"
+                                    Width="200"
+                                    Height="80">
                                 <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
                             </Border>
                         </ControlTemplate>

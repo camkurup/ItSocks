@@ -29,6 +29,8 @@ namespace ItSocks
             shoeSize.Add(44);
             shoeSize.Add(45);
             shoeSize.Add(46);
+            slValueCuff.Visibility = Visibility.Collapsed;
+            slValueShaft.Visibility = Visibility.Collapsed;
 
             ShoeSize.ItemsSource = shoeSize;
             
@@ -73,7 +75,7 @@ namespace ItSocks
                 im.Height = 50;
                 im.Width = 50;
                 im.Source = new BitmapImage(new Uri(@"C:\Users\CKU\Documents\Skole\H5\Prøve-Svendeprøve\ItSocks\ItSocks\Img\placeholder.png"));
-                Heel.Children.Add(im);
+                //Heel.Children.Add(im);
             }
         }
 
@@ -85,7 +87,7 @@ namespace ItSocks
                 im.Height = 50;
                 im.Width = 50;
                 im.Source = new BitmapImage(new Uri(@"C:\Users\CKU\Documents\Skole\H5\Prøve-Svendeprøve\ItSocks\ItSocks\Img\placeholder.png"));
-                Soel.Children.Add(im);
+                //Soel.Children.Add(im);
             }
         }
 
@@ -97,7 +99,7 @@ namespace ItSocks
                 im.Height = 50;
                 im.Width = 50;
                 im.Source = new BitmapImage(new Uri(@"C:\Users\CKU\Documents\Skole\H5\Prøve-Svendeprøve\ItSocks\ItSocks\Img\placeholder.png"));
-                Toe.Children.Add(im);
+                //Toe.Children.Add(im);
             }
         }
         private void Calculat_Click(object sender, RoutedEventArgs e)

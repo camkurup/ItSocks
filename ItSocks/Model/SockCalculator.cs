@@ -10,10 +10,12 @@ using System.Threading.Tasks;
 
 namespace ItSocks.Data
 {
+    /// <summary>
+    ///  responsible for calculating and bulding all the nessesaury values for a Sock Pattern
+    ///  One Calculator can calculat One pattern = sock
+    /// </summary>
     public class SockCalculator
     {
-        //responsible for calculating and bulding all the nessesaury values for a Sock Pattern
-        //One Calculator can calculat One pattern = sock
 
         //Perhaps it would be smart to create a chek on there is used a minimum count of masks.
         //It should not be posilbe to create soks with at knittingGauge on only a few masks

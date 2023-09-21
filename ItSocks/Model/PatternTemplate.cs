@@ -7,11 +7,13 @@ using System.Threading.Tasks;
 
 namespace ItSocks.Model
 {
+    /// <summary>
+    /// responsible for holding the pattern.
+    /// One might argue that the should not be here and it might be in a txt file or something insted
+    /// that controller can call though the data layer
+    /// </summary>
     public class PatternTemplate
     {
-        // responsible for holding the pattern.
-        // One might argue that the should not be here and it might be in a txt file or something insted
-        // that controller can call though the data layer
         public SockCalculator SockCalculator = new SockCalculator();
 
         public async Task<string> CuffTemplate(int masks, int shoeSize)

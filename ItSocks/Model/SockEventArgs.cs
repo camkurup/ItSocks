@@ -7,10 +7,11 @@ using System.Threading.Tasks;
 
 namespace ItSocks.Model
 {
+    /// <summary>
+    /// responsible for returning that an event have happend
+    /// </summary>
     public class SockEventArgs : EventArgs
-    {
-        // responsible for returning that an event have happend
-
+    {      
         public Sock Sock { get; set; }
 
         public SockEventArgs(Sock sock) 

@@ -9,9 +9,11 @@ using System.Threading.Tasks;
 
 namespace ItSocks.Controller
 {
+    /// <summary>
+    /// responsible for sending and reciving from the UI layer
+    /// </summary>
     public class SockController
     {
-        //responsible for sending and reciving from the UI layer
 
         public event EventHandler SockCalculated;
 
